@@ -8,7 +8,7 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
-import Form from 'react-native-schema-form';
+import Form from 'react-native-jsonschema-form';
 import Simple from "./simple";
 import { YellowBox } from 'react-native';
 

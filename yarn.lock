@@ -3994,7 +3994,7 @@ react-native-elements@^1.0.0-beta5:
     opencollective-postinstall "^2.0.0"
     prop-types "^15.5.8"
 
-react-native-schema-form@../react-native-schema-form:
+react-native-jsonschema-form@../react-native-jsonschema-form:
   version "0.0.1"
   dependencies:
     ajv "^5.2.3"
