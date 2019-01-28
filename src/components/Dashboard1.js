@@ -6,44 +6,34 @@ import { type NavigationTabScreenOptions } from 'react-navigation';
 import { connect } from 'react-redux';
 import TabBarIcon from './TabBar/TabBarIcon';
 import csstyles from '../csstyles';
+import FlatListSchema from '../../FlatListSchema'
+import Form from 'react-native-jsonschema-form';
 
 type Props = {}
 
 class Dashboard1 extends PureComponent<Props> {
   static navigationOptions = (): NavigationTabScreenOptions => ({
-    tabBarLabel: 'Simple Form',
+    tabBarLabel: 'FORM_2',
     tabBarIcon: options => <TabBarIcon icon="window-maximize" tintColor={options.tintColor} />
   })
 
   render() {
+    const schema = FlatListSchema.schema
+    const uiSchema = FlatListSchema.uiSchema
     return (
       <View
         style={{
-          ...csstyles.base.fullCenter,
-          backgroundColor: csstyles.vars.csBlack
+          ...csstyles.base.full,
+          backgroundColor: csstyles.vars.csWhite
         }}
       >
-        <Text
-          style={{
-            ...csstyles.text.bold,
-            ...csstyles.text.textPrimary,
-            fontSize: 18,
-            textAlign: 'center'
-          }}
-        >
-          Dashboard Screen
-        </Text>
-
-        <Text
-          style={{
-            ...csstyles.text.medium,
-            ...csstyles.text.textWhite,
-            fontSize: 15,
-            textAlign: 'center'
-          }}
-        >
-          Comming Soon...
-        </Text>
+       <Form schema={schema}
+          styles={csstyles.base.form}
+          uiSchema={uiSchema}
+          onChange={console.log("changed")}
+          onSubmit={console.log("submitted")}
+          onError={console.log("errors")}
+        />
       </View>
     )
   }

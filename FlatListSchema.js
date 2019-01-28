@@ -2,7 +2,7 @@ module.exports = {
   schema: {
     title: "",
     description: "",
-    type: "flatList",
+    type: "View",
     // required: ["firstName", "lastName"],
     properties: {
       // firstName: {
