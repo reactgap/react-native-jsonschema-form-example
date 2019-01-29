@@ -1,21 +1,33 @@
 module.exports = {
   schema: {
-    title: "",
+    title: "Form View",
     description: "",
-    type: "View",
+    type: "view",
     // required: ["firstName", "lastName"],
     properties: {
-      // firstName: {
-      //   type: "string",
-      //   title: "First name",
-      //   default: "Chuck",
-      // },
-      // lastName: {
-      //   type: "string",
-      //   title: "Last name",
-      //   minLength: 3,
-      //   maxLength: 10
-      // },
+      componentList: {
+        type: "flatList",
+        card: "menu",
+        spacing: 5,
+        numColumns: 2,
+        data: [
+          {
+            key: "1",
+            text: "profile",
+            logo: "profile"
+          },
+          {
+            key: "2",
+            text: "Settings",
+            logo: "setting"
+          },
+          {
+            key: "3",
+            text: "profile",
+            logo: "profile"
+          }
+        ]
+      }
       // bio: {
       //   type: "string",
       //   title: "Bio name",
