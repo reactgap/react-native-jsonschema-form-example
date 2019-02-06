@@ -1,15 +1,15 @@
 module.exports = {
   schema: {
-    title: "Form View",
+    title: "",
     description: "",
     type: "view",
     // required: ["firstName", "lastName"],
     properties: {
-      componentList: {
+      FlatList: {
         type: "flatList",
         card: "menu",
         spacing: 5,
-        numColumns: 2,
+        numColumns: 1,
         data: [
           {
             key: "1",
@@ -25,7 +25,12 @@ module.exports = {
             key: "3",
             text: "profile",
             logo: "profile"
-          }
+          },
+          {
+            key: "4",
+            text: "Home",
+            logo: "Home"
+          },
         ]
       }
       // bio: {
