@@ -9,27 +9,31 @@ module.exports = {
         type: "flatList",
         card: "menu",
         spacing: 5,
-        numColumns: 1,
+        numColumns: 2,
         data: [
           {
             key: "1",
-            text: "profile",
-            logo: "profile"
+            title: "profile",
+            icon: "profile",
+            type: "EvilIcons"
           },
           {
             key: "2",
-            text: "Settings",
-            logo: "setting"
+            title: "Settings",
+            icon: "setting",
+            type: "EvilIcons"
           },
           {
             key: "3",
-            text: "profile",
-            logo: "profile"
+            title: "profile",
+            icon: "profile",
+            type: "EvilIcons"
           },
           {
             key: "4",
-            text: "Home",
-            logo: "Home"
+            title: "Home",
+            icon: "Home",
+            type: "EvilIcons"
           },
         ]
       }
