@@ -33,6 +33,7 @@ class Dashboard1 extends PureComponent<Props> {
           onChange={console.log("changed")}
           onSubmit={console.log("submitted")}
           onError={console.log("errors")}
+          onAction={(action) => console.log(action)}
         />
       </View>
     )
