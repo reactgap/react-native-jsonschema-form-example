@@ -8,6 +8,7 @@ import { createBottomTabNavigator,
 import Dashboard from './Dashboard'
 import Dashboard1 from './Dashboard1'
 import Dashboard2 from './Dashboard2'
+import Screen1 from './Screen1'
 import csstyles from '../csstyles'
 import TabBar from './TabBar/TabBar'
 import NavTitle from './NavTitle'
@@ -52,10 +53,10 @@ const MainRoot = createStackNavigator({
     screen: createBottomTabNavigator(
       {
         Dashboard: {
-          screen: Dashboard
+          screen: Dashboard1
         },
         Dashboard1: {
-          screen: Dashboard1
+          screen: Dashboard
         },
         Dashboard2:  {
           screen: Dashboard2
@@ -83,13 +84,13 @@ const MainRoot = createStackNavigator({
     ),
     navigationOptions: MainRootNavigationOptions
   },
-  // Product: {
-  //   screen: Product,
-  //   navigationOptions: {
-  //     header: null,
-  //     headerStyle: csstyles.nav.header
-  //   }
-  // },
+  screen1: {
+    screen: Screen1,
+    navigationOptions: {
+      header: null,
+      headerStyle: csstyles.nav.header
+    }
+  }
   // Damage: {
   //   screen: Damage,
   //   navigationOptions: {

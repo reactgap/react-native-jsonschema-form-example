@@ -17,6 +17,12 @@ class Dashboard1 extends PureComponent<Props> {
     tabBarIcon: options => <TabBarIcon icon="window-maximize" tintColor={options.tintColor} />
   })
 
+  onAction = (action) => {
+    const { navigation } = this.props;
+    console.log("screen1");
+    navigation.push("screen1");
+  }
+
   render() {
     const schema = FlatListSchema.schema
     const uiSchema = FlatListSchema.uiSchema
@@ -33,7 +39,7 @@ class Dashboard1 extends PureComponent<Props> {
           onChange={console.log("changed")}
           onSubmit={console.log("submitted")}
           onError={console.log("errors")}
-          onAction={(action) => console.log(action)}
+          onAction={this.onAction}
         />
       </View>
     )
