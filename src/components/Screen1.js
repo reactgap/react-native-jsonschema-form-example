@@ -7,6 +7,9 @@ import CSBackButton from './Button/CSBackButton/CSBackButton'
 import { connect } from 'react-redux';
 import TabBarIcon from './TabBar/TabBarIcon';
 import csstyles from '../csstyles';
+import ScreenSchema from '../../ScreenSchema';
+import Form from 'react-native-jsonschema-form';
+import Simple from '../../simple';
 
 import { DEVICE_SCREEN_WIDTH,
   DEVICE_TOP_SAFE,
@@ -37,15 +40,27 @@ class Screen1 extends PureComponent<Props> {
   }
 
   render() {
+    const schema = Simple.schema
+    const uiSchema = Simple.uiSchema
     return(
       <View style={styles.container}>
-        {this.renderScrollContent()}
+        {/* {this.renderScrollContent()} */}
         <CSBackButton
             wrapperStyle={styles.backBtn}
             forceCloseIcon={IS_DEVICE_VERY_LONG_WIDTH}
             lighterBg={IS_DEVICE_VERY_LONG_WIDTH}
             onPress={null}
         />
+        <View style={{ marginTop: 100 }}>
+          <Form schema={schema}
+            styles={csstyles.base.form}
+            uiSchema={uiSchema}
+            onChange={console.log("changed")}
+            onSubmit={console.log("submitted")}
+            onError={console.log("errors")}
+            // onAction={this.onAction}
+          />
+        </View>
       </View>
     )
   }
