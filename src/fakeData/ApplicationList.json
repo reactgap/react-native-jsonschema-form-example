@@ -1,0 +1,59 @@
+[
+  {
+    "applicationId": "12345",
+    "product": {
+      "id": 1,
+      "name": "Bảo Hiểm",
+      "orgainization": "Chubb",
+      "imageUrl": "http://bloomaxx.com/wp-content/uploads/2018/05/tu-tin-du-ngoan-5-chau-voi-bao-hiem-du-lich-chubb-1.jpg",
+      "active": true,
+      "currencyISO": "VND"
+    },
+    "customer": {
+      "firstName": "A",
+      "lastName": "Nguyen Van",
+      "address": {
+        "district": "Hải Châu",
+        "province": "Đà Nẵng"
+      }
+    }
+  },
+  {
+    "applicationId": "12346",
+    "product": {
+      "id": 1,
+      "name": "Bảo Hiểm",
+      "orgainization": "Chubb",
+      "imageUrl": "http://bloomaxx.com/wp-content/uploads/2018/05/tu-tin-du-ngoan-5-chau-voi-bao-hiem-du-lich-chubb-1.jpg",
+      "active": true,
+      "currencyISO": "VND"
+    },
+    "customer": {
+      "firstName": "A",
+      "lastName": "Nguyen Van",
+      "address": {
+        "district": "Hải Châu",
+        "province": "Đà Nẵng"
+      }
+    }
+  },
+  {
+    "applicationId": "12347",
+    "product": {
+      "id": 1,
+      "name": "Bảo Hiểm",
+      "orgainization": "Chubb",
+      "imageUrl": "http://bloomaxx.com/wp-content/uploads/2018/05/tu-tin-du-ngoan-5-chau-voi-bao-hiem-du-lich-chubb-1.jpg",
+      "active": true,
+      "currencyISO": "VND"
+    },
+    "customer": {
+      "firstName": "A",
+      "lastName": "Nguyen Van",
+      "address": {
+        "district": "Hải Châu",
+        "province": "Đà Nẵng"
+      }
+    }
+  }
+]

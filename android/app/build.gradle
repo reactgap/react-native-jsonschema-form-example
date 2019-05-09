@@ -98,11 +98,12 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        applicationId "com.example"
+        applicationId "com.thebankctv"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
@@ -137,6 +138,13 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-reanimated')
+    compile project(':appcenter-crashes')
+    compile project(':appcenter-analytics')
+    compile project(':appcenter')
+    compile project(':react-native-linear-gradient')
+    compile project(':react-native-image-crop-picker')
+    compile project(':react-native-fast-image')
     compile project(':react-native-gesture-handler')
     compile project(':react-native-vector-icons')
     implementation fileTree(dir: "libs", include: ["*.jar"])

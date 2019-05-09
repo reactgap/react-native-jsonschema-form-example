@@ -1,0 +1,27 @@
+[
+    {
+        "id": 0,
+        "name": "Profile",
+        "logoName": "contact"
+    },
+    {
+        "id": 1,
+        "name": "Booking",
+        "logoName": "calendar"
+    },
+    {
+        "id": 2,
+        "name": "Favorite",
+        "logoName": "heart"
+    },
+    {
+        "id": 3,
+        "name": "Inbox",
+        "logoName": "envelope"
+    },
+    {
+        "id": 4,
+        "name": "Settings",
+        "logoName": "gear"
+    }
+]

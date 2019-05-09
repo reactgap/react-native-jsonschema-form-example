@@ -1,22 +1,33 @@
 // @flow
 // @format
 
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
+import { Header } from 'react-navigation'
 import { DEVICE_BOTTOM_SAFE,
   DEVICE_TOP_SAFE,
   IS_DEVICE_SHORT_HEIGHT,
   IS_DEVICE_VERY_LONG_WIDTH } from './utils/deviceHelper'
 
+const widthProduct = Dimensions.get('window').width/2 - 24
+
 const vars = {
-  csGrey: '#363A44',
-  csGreen: '#05BE76',
+  csGreyDark:'#363A44',
+  csGrey: '#1C1E24',
+  csGreen: '#2d6446',
+  csOrange: '#f88100',
+  csGreenDeep: '#137ab1', 
+  csGreenBorder: '#154864',
   csDanger: '#DC3545',
   csBrown: '#5F5F5F',
   csLight: '#D8D8D8',
   csWhite: '#FFFFFF',
   csBlack: '#000000',
+  csBlue: '#3D4D8D',
+  csDollar: '#2B593F',
+  csBoxMargin: 16,
+  csHeader: DEVICE_TOP_SAFE + 44,
   csBoxBorderWidth: 2,
-  csBoxBorderRadius: 8,
+  csBoxBorderRadius: 6,
   csBoxBorderRadius2x: 16,
   csBoxSpacingHalf: IS_DEVICE_VERY_LONG_WIDTH ? 6 : 4,
   csBoxSpacing: IS_DEVICE_VERY_LONG_WIDTH ? 12 : 8,
@@ -24,7 +35,8 @@ const vars = {
   csInputHeight: IS_DEVICE_SHORT_HEIGHT ? 30 : 44,
   csInputBorderRaius: IS_DEVICE_SHORT_HEIGHT ? 15 : 22,
   csInputHorizontalPadding: IS_DEVICE_SHORT_HEIGHT ? 13 : 20,
-  widthForContainerOnLargeScreen: 500
+  widthForContainerOnLargeScreen: 500,
+  widthProduct
 }
 
 const mixin = {
@@ -34,13 +46,13 @@ const mixin = {
 
 const text = StyleSheet.create({
   regular: {
-    // fontFamily: 'Montserrat-Regular'
+    fontFamily: 'Montserrat-Regular'
   },
   medium: {
-    // fontFamily: 'Montserrat-Medium'
+    fontFamily: 'Montserrat-Medium'
   },
   bold: {
-    // fontFamily: 'Montserrat-Bold'
+    fontFamily: 'Montserrat-Bold'
   },
   textPrimary: {
     color: vars.csGreen
@@ -61,7 +73,7 @@ const text = StyleSheet.create({
 
 const nav = StyleSheet.create({
   header: {
-    backgroundColor: vars.csGrey,
+    backgroundColor: vars.csGreen,
     elevation: 0,
     shadowColor: 'transparent',
     borderBottomWidth: 0,
@@ -71,9 +83,13 @@ const nav = StyleSheet.create({
     }
   }
 })
+//['#2A3540', '#36424F', '#445160']
+//['#010101', '#1A1A1A', '#3F3F3F'] dark
+const gradients = ['#39373E', '#555057', '#39373E']
 
 const base = StyleSheet.create({
   full: {
+    position: 'relative',
     flex: 1
   },
   center: {
@@ -87,10 +103,16 @@ const base = StyleSheet.create({
   },
   fullTopSafe: {
     flex: 1,
-    paddingTop: DEVICE_TOP_SAFE
+    paddingTop: DEVICE_TOP_SAFE 
   },
   fullTopBottomSafe: {
     flex: 1,
+    paddingTop: DEVICE_TOP_SAFE,
+    paddingBottom: DEVICE_BOTTOM_SAFE
+  },
+  form: {
+    paddingLeft: 16,
+    paddingRight: 16,
     paddingTop: DEVICE_TOP_SAFE,
     paddingBottom: DEVICE_BOTTOM_SAFE
   },
@@ -110,6 +132,9 @@ const base = StyleSheet.create({
   },
   row: {
     flexDirection: 'row'
+  },
+  column: {
+    flexDirection: 'column'
   },
   relative: {
     position: 'relative'
@@ -173,10 +198,41 @@ const base = StyleSheet.create({
     marginTop: 3,
     marginBottom: 2
   },
-  form: {
-    marginTop: 60,
-    marginHorizontal: 30
+  backBtn: {
+    position: 'absolute',
+    top: vars.csBoxSpacing2x + DEVICE_TOP_SAFE,
+    left: vars.csBoxSpacing2x
   },
+  headerStyle: {
+    top: vars.csBoxSpacing2x + DEVICE_TOP_SAFE,
+    position: 'relative',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+    zIndex: 100
+  },
+  bottomView: {
+    marginBottom: 0,
+    height: DEVICE_BOTTOM_SAFE + 50
+  },
+  markdown: {
+    marginHorizontal: vars.csBoxMargin
+  },
+  scrollableTabBar: {
+    borderWidth:0,
+    backgroundColor: vars.csGrey
+  },
+  viewBelowHeader: {
+    marginTop: Header.HEIGHT,
+    flex: 1
+  }
+})
+
+const screen = StyleSheet.create({
+  main: {
+    ...base.fullTopBottomSafe,
+    backgroundColor: vars.csGrey
+  }
 })
 
 const border = StyleSheet.create({
@@ -188,11 +244,38 @@ const border = StyleSheet.create({
   }
 })
 
+const indicatorCustomStyles = {
+  stepIndicatorSize: 25,
+  currentStepIndicatorSize:30,
+  separatorStrokeWidth: 2,
+  currentStepStrokeWidth: 3,
+  stepStrokeCurrentColor: '#fe7013',
+  stepStrokeWidth: 3,
+  stepStrokeFinishedColor: '#fe7013',
+  stepStrokeUnFinishedColor: '#aaaaaa',
+  separatorFinishedColor: '#fe7013',
+  separatorUnFinishedColor: '#aaaaaa',
+  stepIndicatorFinishedColor: '#fe7013',
+  stepIndicatorUnFinishedColor: '#ffffff',
+  stepIndicatorCurrentColor: '#ffffff',
+  stepIndicatorLabelFontSize: 13,
+  currentStepIndicatorLabelFontSize: 13,
+  stepIndicatorLabelCurrentColor: '#fe7013',
+  stepIndicatorLabelFinishedColor: '#ffffff',
+  stepIndicatorLabelUnFinishedColor: '#aaaaaa',
+  labelColor: '#999999',
+  labelSize: 10,
+  currentStepLabelColor: '#fe7013'
+}
+
 export default {
   mixin,
   vars,
   text,
   base,
   border,
-  nav
+  nav,
+  screen,
+  gradients,
+  indicatorCustomStyles
 }

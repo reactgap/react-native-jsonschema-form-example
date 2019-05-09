@@ -1,0 +1,26 @@
+[
+  {
+    "id": 0,
+    "name": "UNSECURED_LOAN"
+  },
+  {
+    "id": 1,
+    "name": "CREDIT"
+  },
+  {
+    "id": 2,
+    "name": "INSURANCE"
+  },
+  {
+    "id": 3,
+    "name": "MORTGAGE_LOAN"
+  },
+  {
+    "id": 4,
+    "name": "THIS_QUATER"
+  },
+  {
+    "id": 5,
+    "name": "LAST_QUATER"
+  }
+]

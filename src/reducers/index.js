@@ -1,7 +1,11 @@
 // @flow
 import { combineReducers } from 'redux'
-import nav from './nav.reducer'
+import reducer from './nav.reducer'
+import homeReducer from './home.reducer'
+import applicationReducer from './application.reducer'
 
 export default combineReducers({
-  nav
+  nav: reducer,
+  home: homeReducer,
+  application: applicationReducer
 })

@@ -1,0 +1,26 @@
+[
+  {
+    "id": 0,
+    "name": "THIS_MONTH"
+  },
+  {
+    "id": 1,
+    "name": "LAST_MONTH"
+  },
+  {
+    "id": 2,
+    "name": "YESTERDAY"
+  },
+  {
+    "id": 3,
+    "name": "TODAY"
+  },
+  {
+    "id": 4,
+    "name": "THIS_QUATER"
+  },
+  {
+    "id": 5,
+    "name": "LAST_QUATER"
+  }
+]

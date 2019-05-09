@@ -4,28 +4,57 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "ios-ip-xr": "react-native run-ios --simulator=\"iPhone XR\"",
+    "test": "jest",
+    "test:watch": "yarn test -- --watch"
+  },
+  "rnpm": {
+    "assets": [
+      "./assets/fonts/"
+    ]
   },
   "dependencies": {
+    "appcenter": "^1.13.0",
+    "appcenter-analytics": "^1.13.0",
+    "appcenter-crashes": "^1.13.0",
+    "axios": "0.18.0",
+    "i18next": "13.1.0",
+    "intl": "^1.2.5",
     "react": "16.6.3",
+    "react-i18next": "9.0.1",
     "react-native": "0.57.8",
-    "react-native-gesture-handler": "^1.0.15",
+    "react-native-fast-image": "5.1.2",
+    "react-native-gesture-handler": "^1.1.0",
     "react-native-jsonschema-form": "../react-native-jsonschema-form",
+    "react-native-linear-gradient": "^2.5.4",
+    "react-native-markdown-renderer": "^3.2.8",
+    "react-native-reanimated": "^1.0.1",
+    "react-native-scrollable-tab-view": "^0.10.0",
+    "react-native-step-indicator": "^0.0.11",
     "react-native-vector-icons": "5.0.0",
     "react-navigation": "^3.0.9",
     "react-navigation-redux-helpers": "^2.0.9",
     "react-navigation-tabs": "^1.0.2",
-    "react-redux": "^6.0.0",
+    "react-redux": "^6.0.1",
     "redux": "^4.0.1",
-    "url": "^0.11.0"
+    "redux-persist": "^5.10.0",
+    "redux-saga": "^1.0.2",
+    "redux-thunk": "^2.3.0",
+    "url": "^0.11.0",
+    "yarn": "^1.15.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
     "babel-jest": "23.6.0",
-    "jest": "23.6.0",
-    "metro-react-native-babel-preset": "0.51.1",
-    "react-test-renderer": "16.6.3"
-  },
-  "jest": {
-    "preset": "react-native"
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.12.0",
+    "enzyme-to-json": "^3.3.5",
+    "jest": "^24.7.1",
+    "jest-transform-stub": "^2.0.0",
+    "metro-react-native-babel-preset": "^0.53.1",
+    "react-dom": "^16.8.6",
+    "react-test-renderer": "16.6.3",
+    "redux-mock-store": "^1.5.3"
   }
 }

@@ -1,5 +1,4 @@
 // @flow
-
 import { Dimensions, Platform, StatusBar } from 'react-native'
 
 export function isIphoneX() {
