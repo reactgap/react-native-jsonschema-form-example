@@ -12,7 +12,8 @@ import csstyles from '../../../csstyles'
 
 type Props = {
   title?: string,
-  type: 'primary' | 'main' | 'secondary' | 'danger' | 'border',
+  type: 'primary' | 'main' | 'secondary' | 'danger' | 'border' | 'primaryDark' | 'custom',
+  customStyle: ViewStyle,
   onPress?: () => void,
   leftIcon?: string,
   iconOnly?: boolean,
@@ -31,9 +32,13 @@ const CSButton = ({
   leftIcon,
   iconOnly,
   iconStyle,
-  iconContainerStyle
+  iconContainerStyle,
+  customStyle
 }: Props) => {
-  const btnStyle = styles[type]
+  var btnStyle = styles[type]
+  if (type === 'custom') {
+    btnStyle = customStyle
+  }
   const textStyle = styles[`text_${type}`]
 
   return (
@@ -119,6 +124,10 @@ const styles = StyleSheet.create({
     backgroundColor: csstyles.vars.csDollar,
     borderWidth: 0
   },
+  primaryDark: {
+    backgroundColor: csstyles.vars.csGreenDark,
+    borderWidth: 0
+  },
   text_primary: {
     color: csstyles.vars.csWhite
   },
@@ -129,6 +138,9 @@ const styles = StyleSheet.create({
     color: csstyles.vars.csWhite
   },
   text_main: {
+    color: csstyles.vars.csWhite
+  },
+  text_primaryDark: {
     color: csstyles.vars.csWhite
   },
   border: {

@@ -67,6 +67,30 @@ export type Application = {
   customer: User
 }
 
+export type SummaryInfo = {
+  total: Number,
+  from: Number,
+  size: Number
+}
+
+// export type Summary = {
+//   info: SummaryInfo,
+//   pennding: Number,
+//   progress: Number,
+//   canceled: Number,
+//   reject: Number,
+//   success: Number
+// }
+export type SummaryItem = {
+  type: Number,
+  value: Number
+}
+
+export type Summary = {
+  info: SummaryInfo,
+  response: SummaryItem[]
+}
+
 type AlertShowAction = { type: 'ALERT_SHOW', payload: AlertConfig };
 type AlertHideAction = { type: 'ALERT_HIDE' };
 

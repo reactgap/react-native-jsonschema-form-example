@@ -14,7 +14,8 @@ type Props = {
   placeholderStyle?: ViewStyle,
   placeholderTextStyle?: TextStyle,
   bottomIconName?: string,
-  profilePlaceHolder?: boolean
+  profilePlaceHolder?: boolean,
+  resizeMode?: String
 }
 
 type State = {
@@ -46,7 +47,8 @@ class Photo extends PureComponent<Props, State> {
       bottomIconName,
       placeholderStyle,
       profilePlaceHolder,
-      placeholderTextStyle
+      placeholderTextStyle,
+      resizeMode
     } = this.props
     const { loadState } = this.state
 
@@ -57,7 +59,7 @@ class Photo extends PureComponent<Props, State> {
             uri: url || ''
           }}
           style={[csstyles.base.full, photoStyle]}
-          resizeMode="contain"
+          resizeMode={resizeMode ? resizeMode : 'stretch'}
           onLoad={this.onLoad}
           onError={this.onError}
         />
@@ -66,8 +68,9 @@ class Photo extends PureComponent<Props, State> {
           <View style={[styles.placeholder, placeholderStyle]}>
             {profilePlaceHolder ? (
               <FontAwesome5
-                name="user"
+                name="user-circle"
                 style={[styles.placeholderText, placeholderTextStyle]}
+                size= {48}
                 solid
               />
             ) : (
@@ -93,14 +96,13 @@ const styles = StyleSheet.create({
   },
   placeholder: {
     ...csstyles.base.absoluteFull,
-    backgroundColor: csstyles.vars.csGreen,
+    backgroundColor: 'transparent',
     justifyContent: 'center',
     alignItems: 'center'
   },
   placeholderText: {
     ...csstyles.text.medium,
-    fontSize: 13,
-    color: csstyles.vars.csLight,
+    color: csstyles.vars.csWhite,
     textAlign: 'center'
   },
   bottomIconContainer: {

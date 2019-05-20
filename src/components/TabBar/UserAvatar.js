@@ -35,8 +35,8 @@ class UserAvatar extends PureComponent<Props> {
 }
 
 const navUserAvatarSize = Platform.select({
-  ios: 30,
-  android: 40
+  ios: 50,
+  android: 50
 })
 
 const navUserAvatarRightPadding = IS_DEVICE_VERY_SHORT_WIDTH
@@ -48,7 +48,9 @@ const styles = StyleSheet.create({
     width: navUserAvatarSize,
     height: navUserAvatarSize,
     borderRadius: navUserAvatarSize / 2,
-    marginLeft: navUserAvatarRightPadding
+    marginLeft: navUserAvatarRightPadding,
+    borderWidth: 1,
+    borderColor: csstyles.vars.csWhite
   }
 })
 

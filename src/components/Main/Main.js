@@ -43,10 +43,10 @@ const MainRootNavigationOptions: NavigationScreenConfig<NavigationStackScreenOpt
   default:
     break
   }
-
+  const hasLogo = titleCode.length == 0 ? true : false
   return {
-    headerLeft: <UserAvatar />,
-    headerTitle: <NavTitle titleCode={titleCode} hasLogo={true}/>,
+    headerLeft: null,
+    headerTitle: <NavTitle titleCode={titleCode} hasLogo={hasLogo}/>,
     headerTintColor: csstyles.vars.csGreen,
     headerTruncatedBackTitle: true,
     headerRight: <NotificationBadge />,
@@ -74,9 +74,9 @@ const MainRoot = createStackNavigator({
       {
         tabBarComponent: TabBar,
         tabBarOptions: {
-          activeTintColor: csstyles.vars.csOrange,
+          activeTintColor: csstyles.vars.csWhite,
           activeBackgroundColor: csstyles.vars.csGreen,
-          inactiveTintColor: csstyles.vars.csLight,
+          inactiveTintColor: csstyles.mixin.csGreenDeepOpacity(0.8),
           inactiveBackgroundColor: csstyles.vars.csGreen,
           style: {
             backgroundColor: csstyles.vars.csGreen

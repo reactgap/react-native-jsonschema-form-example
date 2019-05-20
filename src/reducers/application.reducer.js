@@ -1,20 +1,20 @@
 // @flow
 import { REHYDRATE } from 'redux-persist'
-import { Action, Application } from '../types'
+import { Action, Application, Summary } from '../types'
+import { ApplicationState } from './types.reducer'
 import { 
   FILTER_APPLICATION_LOADING,
   FILTER_APPLICATION,
-  FILTER_APPLICATION_RESULTS
+  FILTER_APPLICATION_RESULTS,
+  FILTER_APPLICATION_SUMMARY,
+  FILTER_APPLICATION_SUMMARY_LOADING,
+  FILTER_APPLICATION_SUMMARY_RESULTS
 } from '../actions/application.actions'
-
-type ApplicationState = {
-   applications: Application[],
-   isLoading: Boolean
-};
 
 const INIT_STATE: ApplicationState = {
     applications: null,
     isLoading: false,
+    summary: null
 };
 
 const reducer = (state: ApplicationState = INIT_STATE, action: Action): ApplicationState => {
@@ -23,7 +23,7 @@ const reducer = (state: ApplicationState = INIT_STATE, action: Action): Applicat
         case REHYDRATE: {
             return { ...INIT_STATE }
         }
-        case FILTER_APPLICATION_LOADING: {
+        case FILTER_APPLICATION_LOADING || FILTER_APPLICATION_SUMMARY_LOADING: {
             return {
                 ...state,
                 isLoading: true
@@ -34,6 +34,14 @@ const reducer = (state: ApplicationState = INIT_STATE, action: Action): Applicat
             return {
                 ...state,
                 applications,
+                isLoading: false
+            }
+        }
+        case FILTER_APPLICATION_SUMMARY_RESULTS: {
+            const { summary } = action.payload
+            return {
+                ...state,
+                summary,
                 isLoading: false
             }
         }

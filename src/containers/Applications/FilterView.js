@@ -26,37 +26,38 @@ class FilterView extends PureComponent<Props> {
 
   render() {
     const { service, time } = this.props
-    console.log('FilterView')
-    console.log('service',service)
-    console.log('time',time)
     return (
       <>
+        <View style={{ marginTop: 0, height: 0.4, backgroundColor: csstyles.vars.csContainer }}/>
         <View style={styles.filterForm}>
-        <View style={styles.viewPicker}>
-          <PickerOption
-            label="Service Option"
-            icon={'money-check-alt'}
-            value={service.name}
-            data={Services}
-            onChange={this.pickerOnchange}
-            pickerCenter={IS_DEVICE_VERY_LONG_WIDTH}
-            fontSize={12}
-            type="service"
-            currentIndex={service.id}
-          />
-        </View>
-        <View style={styles.viewPicker}>
-          <PickerOption
-            label="Time Option"
-            value={time.name}
-            data={FilterTime}
-            onChange={this.pickerOnchange}
-            pickerCenter={IS_DEVICE_VERY_LONG_WIDTH}
-            fontSize={12}
-            type="time"
-            currentIndex={time.id}
-          />
-        </View>
+          <View style={[styles.viewPicker, {marginRight: csstyles.vars.csBoxSpacing/2.0}]}>
+            <PickerOption
+              label="Service Option"
+              icon={'sort-down'}
+              value={service.name}
+              data={Services}
+              onChange={this.pickerOnchange}
+              pickerCenter={IS_DEVICE_VERY_LONG_WIDTH}
+              fontSize={10}
+              type="service"
+              currentIndex={service.id}
+              themeMode='light'
+            />
+          </View>
+          <View style={[styles.viewPicker, {marginLeft: csstyles.vars.csBoxSpacing/2.0}]}>
+            <PickerOption
+              label="Time Option"
+              icon={'sort-down'}
+              value={time.name}
+              data={FilterTime}
+              onChange={this.pickerOnchange}
+              pickerCenter={IS_DEVICE_VERY_LONG_WIDTH}
+              fontSize={10}
+              type="time"
+              currentIndex={time.id}
+              themeMode='light'
+            />
+          </View>
       </View>
     </>
     )
@@ -65,13 +66,14 @@ class FilterView extends PureComponent<Props> {
 
 const styles = StyleSheet.create({
   filterForm: {
-    ...csstyles.base.rowCenter,
-    marginVertical: 10,
-
+    ...csstyles.base.rowCenterLineBetween,
+    backgroundColor: csstyles.vars.csGreen,
+    paddingHorizontal: csstyles.vars.csBoxSpacing
   },
   viewPicker: {
-    marginLeft: 8,
-    width: DEVICE_SCREEN_WIDTH/2 - 16
+    marginTop: csstyles.vars.csBoxMargin,
+    marginBottom: csstyles.vars.csBoxMargin,
+    flex: 1
   }
 })
 

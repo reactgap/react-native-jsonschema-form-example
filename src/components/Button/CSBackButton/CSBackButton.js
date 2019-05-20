@@ -38,8 +38,6 @@ const styles = StyleSheet.create({
   wrapper: {
     height: csstyles.vars.csInputHeight,
     width: csstyles.vars.csInputHeight,
-    borderRadius: csstyles.vars.csInputBorderRaius,
-    backgroundColor: csstyles.mixin.csBlackOpacity(0.2),
     justifyContent: 'center',
     alignItems: 'center'
   },
@@ -47,11 +45,12 @@ const styles = StyleSheet.create({
     backgroundColor: csstyles.mixin.csGreyOpacity(0.8)
   },
   icon: {
-    color: csstyles.vars.csGreen,
+    color: csstyles.vars.csWhite,
     fontSize: csstyles.vars.csInputHorizontalPadding,
     marginLeft: -3
   },
   iconClose: {
+    color: csstyles.vars.csWhite,
     marginLeft: 1
   }
 })

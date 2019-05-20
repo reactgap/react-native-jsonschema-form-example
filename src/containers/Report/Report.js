@@ -17,7 +17,7 @@ type Props = {
 class Report extends Component<Props> {
   static navigationOptions = (): NavigationTabScreenOptions => ({
     tabBarLabel: 'REPORT',
-    tabBarIcon: options => <TabBarIcon icon="chart-line" tintColor={options.tintColor} />
+    tabBarIcon: options => <TabBarIcon icon="chart-bar" tintColor={options.tintColor} />
   })
 
   render() {

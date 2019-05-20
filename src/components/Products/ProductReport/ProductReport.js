@@ -37,9 +37,11 @@ class ProductReport extends PureComponent<Props, State> {
     const { reportTime } = this.state
     return (
       <View style={styles.screen}>
+      <View style={csstyles.border.shadowView}/>
         <View style={styles.timeOptions}>
           <PickerOption
             label="Time Option"
+            icon={'sort-down'}
             value={reportTime.name}
             data={ReportTime}
             onChange={this.pickerOnchange}
@@ -62,7 +64,7 @@ class ProductReport extends PureComponent<Props, State> {
 const styles = StyleSheet.create({
   screen: {
     ...csstyles.base.full,
-    backgroundColor: csstyles.vars.csGreyDark
+    backgroundColor: csstyles.vars.csWhite
   },
   timeOptions: {
     margin: csstyles.vars.csBoxMargin

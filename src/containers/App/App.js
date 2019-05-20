@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import { StatusBar, View, Image, Platform, Linking } from 'react-native'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
+import codePush from 'react-native-code-push'
 import { I18nextProvider } from 'react-i18next'
 import configureStore from '../../reduxStore'
 // import authActions from '../../actions/auth.actions' 
@@ -80,4 +81,6 @@ class App extends Component<{}> {
   }
 }
 
-export default App
+export default codePush({
+  installMode: codePush.InstallMode.ON_NEXT_RESTART
+})(App)

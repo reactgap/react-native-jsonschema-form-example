@@ -67,7 +67,7 @@ class DialCodeInput extends PureComponent<Props, State> {
                 {dialCode ? `${countryName} (${dialCode})` : selectText}
               </Text>
 
-              <View style={styles.inputIcon}>
+              <View style={csstyles.base.inputIcon}>
                 <FontAwesome5 size={20} name="globe" color={csstyles.vars.csWhite} />
               </View>
             </View>
@@ -85,27 +85,17 @@ const styles = StyleSheet.create({
     height: csstyles.vars.csInputHeight,
     borderRadius: csstyles.vars.csInputBorderRaius,
     overflow: 'hidden',
-    backgroundColor: csstyles.vars.csBlack,
+    backgroundColor: csstyles.vars.csWhite,
     position: 'relative',
     justifyContent: 'center',
     paddingLeft: csstyles.vars.csInputHorizontalPadding,
     paddingRight: csstyles.vars.csInputHeight + csstyles.vars.csBoxSpacing
   },
   inputText: {
-    color: csstyles.vars.csWhite,
+    color: csstyles.vars.csGrey,
     ...csstyles.text.regular,
     fontSize: 16,
     textAlignVertical: 'center'
-  },
-  inputIcon: {
-    width: csstyles.vars.csInputHeight,
-    height: csstyles.vars.csInputHeight,
-    borderRadius: csstyles.vars.csInputBorderRaius,
-    backgroundColor: csstyles.vars.csGreen,
-    ...csstyles.base.center,
-    position: 'absolute',
-    top: -2,
-    right: -2
   },
   label: {
     paddingLeft: csstyles.vars.csInputHorizontalPadding,

@@ -1,5 +1,5 @@
-import React from 'react'
-import { View, StyleSheet, ScrollView } from 'react-native'
+import React, { PureComponent } from 'react'
+import { View, StyleSheet, ScrollView, WebView, ActivityIndicator } from 'react-native'
 import Markdown from 'react-native-markdown-renderer';
 import csstyles from '../../../csstyles';
 
@@ -12,18 +12,47 @@ const copy = `# h1 Heading 8-)
 # h1 Heading 8-)
 `;
 
-const ProductPolicy = (descriptions: String) => {
-  return (
-    <View style={styles.screen}>
-      <ScrollView style={csstyles.base.full}>
-        <View style={styles.markdown}>
-            <Markdown>
-              {copy}
-            </Markdown>
-        </View>
-      </ScrollView>
-    </View>
-  )
+type Props = {
+
+}
+
+type State = {
+
+}
+
+class ProductReport extends PureComponent<Props, State> {
+
+  activityIndicatorLoadingView = () => {
+    //making a view to show to while loading the webpage
+    return (
+      <ActivityIndicator
+        color="red"
+        size="small"
+        style={styles.activityIndicatorStyle}
+      />
+    )
+  }
+
+  render() {
+    return (
+      <View style={styles.screen}>
+        <View style={csstyles.border.shadowView}/>
+        <WebView
+          source={{uri: 'https://github.com/facebook/react-native'}}
+          style={{marginTop: 0, justifyContent: 'center', alignItems: 'center', flex:1}}
+          renderLoading={this.activityIndicatorLoadingView}
+          startInLoadingState={true}  
+        />
+        {/* <ScrollView style={csstyles.base.full}>
+          <View style={styles.markdown}>
+              <Markdown>
+                {copy}
+              </Markdown>
+          </View>
+        </ScrollView> */}
+      </View>
+    )
+  }
 }
 
 const styles = StyleSheet.create({
@@ -37,6 +66,10 @@ const styles = StyleSheet.create({
     ...csstyles.base.full,
     ...csstyles.base.markdown
   },
-
+  activityIndicatorStyle: {
+    justifyContent: 'center', 
+    alignItems: 'center',
+    flex: 1
+  },
 })
-export default ProductPolicy
+export default ProductReport

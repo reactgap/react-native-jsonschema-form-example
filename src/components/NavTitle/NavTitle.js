@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   title: {
     ...csstyles.text.bold,
     ...csstyles.text.textWhite,
-    fontSize: 20,
+    fontSize: 18,
     paddingLeft: navTitleLeftPadding
   }
 })

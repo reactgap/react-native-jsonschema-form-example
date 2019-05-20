@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import { View, Text, ActivityIndicator, ScrollView, RefreshControl, StyleSheet } from 'react-native'
 import { type NavigationTabScreenOptions } from 'react-navigation'
 import { connect } from 'react-redux'
+import { withNamespaces } from 'react-i18next'
 import TabBarIcon from '../../components/TabBar/TabBarIcon'
 import csstyles from '../../csstyles'
 import authActions from '../../actions/auth.actions'
@@ -14,7 +15,7 @@ import { HomeInfoView } from '../../reducers/types.reducer'
 import { ReduxState } from '../../reducers/types.reducer'
 import homeActions from '../../actions/home.actions'
 
-type Props = {
+type Props = I18NComponent & {
   homeInfo: HomeInfoView
 }
 
@@ -33,22 +34,47 @@ class Home extends Component<Props> {
     homeActions.productSelected(product, product.id)
   }
 
+  renderProducts = (products: Product[], hasCode: Boolean) => {
+    if (products && products.length > 0) {
+      const { t } = this.props
+      return (
+        <>
+          <View style={styles.heading}>
+            <Text style={styles.headingTitle}>{hasCode ? t('HOME_PRODUCTS_SELL'): t('HOME_PRODUCTS_SUGGESTION')}</Text>
+          </View>
+          <Products products={products} navigation={this.props.navigation} onPress={this.onPress}/>
+        </>
+      )
+    } else {
+      if (hasCode) {
+        return (
+          <View style={{ flex: 1 }}>
+          
+          </View>
+        )
+      } else {
+        return null
+      }
+    }
+  }
+
   render() {
-    const { homeInfo, isLoading } = this.props
+    const { homeInfo, isLoading, t } = this.props
     const { wallet, productsNoCode, productsHasCode } = homeInfo || {}
     console.log('props Home',this.props)
+    console.log('key lanague', t('HOME_COMMISSION_TEMP'))
     return (
       <View
         style={{
           ...csstyles.base.full,
-          backgroundColor: csstyles.vars.csBlack
+          backgroundColor: csstyles.vars.csContainer
         }}
       >
         {!isLoading && homeInfo != null  ?
           <>
              <ScrollView
           style={csstyles.base.full}
-          stickyHeaderIndices={[1,3]}
+          stickyHeaderIndices={[]}
           refreshControl={(
             <RefreshControl
               size={20}
@@ -58,15 +84,9 @@ class Home extends Component<Props> {
             />
           )}
         >
-          <WalletInfo wallet={wallet} />
-          <View style={styles.heading}>
-            <Text style={styles.headingTitle}>{'Products have code'}</Text>
-          </View>
-          <Products products={productsHasCode} navigation={this.props.navigation} onPress={this.onPress}/>
-          <View style={styles.heading}>
-            <Text style={styles.headingTitle}>{'Product suggestions'}</Text>
-          </View>
-          <Products products={productsNoCode} navigation={this.props.navigation} onPress={this.onPress}/>
+          <WalletInfo wallet={wallet} t={t} />
+          {this.renderProducts(productsHasCode, true)}
+          {this.renderProducts(productsNoCode, false)}
         </ScrollView>
           </>
           :
@@ -91,11 +111,14 @@ const styles = StyleSheet.create({
   heading: {
     paddingHorizontal: csstyles.vars.csBoxSpacing2x,
     paddingVertical: csstyles.vars.csBoxSpacing,
-    backgroundColor: csstyles.mixin.csBlackOpacity(0.8)
+    marginLeft: 30,
+    // backgroundColor: csstyles.mixin.csBlackOpacity(0.8),
+    justifyContent: 'center',
+    // alignItems: 'center'
   },
   headingTitle: {
-    ...csstyles.text.bold,
-    ...csstyles.text.textPrimary,
+    ...csstyles.text.regular,
+    ...csstyles.text.textMain,
     fontSize: 18
   }
 })
@@ -108,6 +131,4 @@ const mapStateToProps = (state: ReduxState) => {
   }
 }
 
-export default connect(
-  mapStateToProps
-)(Home)
+export default withNamespaces()(connect(mapStateToProps)(Home))

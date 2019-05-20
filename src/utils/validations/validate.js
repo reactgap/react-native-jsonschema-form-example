@@ -1,10 +1,12 @@
+
 // @flow
 
 type FieldConfig = {
   require?: boolean,
   email?: boolean,
   equalOther?: string,
-  length?: { min?: number, max?: number }
+  length?: { min?: number, max?: number },
+  equalLength?: number
 }
 
 export type ValidateConfig = {
@@ -48,6 +50,11 @@ const validate = (object: any, config: ValidateConfig) => {
       continue
     }
 
+    if (configForField.equalLength != null && fieldValue != null && typeof fieldValue === 'string' && configForField.equalLength !== fieldValue.length) {
+      errors[field] = "equalLength"
+      continue
+    }
+    console.log('fieldValue',fieldValue)
     if (configForField.length != null && fieldValue != null && typeof fieldValue === 'string') {
       if (configForField.length.min != null && configForField.length.min > fieldValue.length) {
         errors[field] = 'length'

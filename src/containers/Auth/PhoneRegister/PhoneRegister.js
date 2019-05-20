@@ -2,6 +2,7 @@
 // @format
 
 import React from 'react'
+import { Text, View, StyleSheet } from 'react-native'
 import csstyles from '../../../csstyles'
 import { i18nTranslator, currLanguage } from '../../../utils/i18n'
 import CSButton from '../../../components/Button/CSButton/CSButton'
@@ -44,9 +45,9 @@ class PhoneRegister extends BaseForm<State, {}> {
 
   phoneVerificationId: string | null = null
 
-  title = () => i18nTranslator('USER_AUTH_PHONE_TITLE')
+  title = () => i18nTranslator('LOGIN')
 
-  description = () => i18nTranslator('USER_AUTH_PHONE_DESC')
+  description = () => i18nTranslator('LOGIN_DESC')
 
   validateConfig = PhoneRegisterValidateConfig
 
@@ -101,7 +102,8 @@ class PhoneRegister extends BaseForm<State, {}> {
     }
 
     return (
-      <>
+      <View style={{marginTop: csstyles.vars.csBoxSpacing *2}}>
+        {/* <Text style={csstyles.base.textGroup}>Country</Text> */}
         <DialCodeInput
           countryName={countryName}
           dialCode={dialCode}
@@ -113,6 +115,7 @@ class PhoneRegister extends BaseForm<State, {}> {
           }
           pickerCenter={IS_DEVICE_VERY_LONG_WIDTH}
         />
+        {/* <Text style={csstyles.base.textGroup}>Phone</Text> */}
         <TextField
           keyboardType="number-pad"
           placeholder={i18nTranslator('USER_AUTH_PHONE_NUMBER')}
@@ -129,13 +132,22 @@ class PhoneRegister extends BaseForm<State, {}> {
           type="primary"
           disabled={isRequesting || !isEmpty(errors)}
           style={{
-            marginBottom: csstyles.vars.csBoxSpacing
+            marginTop: csstyles.vars.csBoxSpacing * 3
           }}
           onPress={this.submit}
         />
-      </>
+      </View>
     )
   }
 }
+const styles = StyleSheet.create({
+  textInfo: {
+    color: csstyles.vars.csGrey,
+    fontSize: 14,
+    paddingTop: csstyles.vars.csBoxSpacing,
+    paddingBottom: csstyles.vars.csBoxSpacing,
+    textAlign: 'center' 
 
+  }
+})
 export default PhoneRegister

@@ -183,7 +183,7 @@ class BaseForm<State = {}, Props = {}> extends Component<
   renderTop = () => {
     const { keyboardOpen } = this.state
 
-    if (keyboardOpen) return null
+    // if (keyboardOpen) return null
 
     return (
       <View style={baseFormStyles.top}>

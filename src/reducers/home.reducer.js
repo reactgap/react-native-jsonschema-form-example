@@ -35,10 +35,10 @@ const reducer = (state: HomeState = INIT_STATE, action: Action): HomeState => {
             var productsHasCode = []
             var productsNoCode = []
             for (let product of products) {
-                if (isEmpty(product.code)) {
-                    productsNoCode.push(product)
-                } else {
+                if (product.code != null && product.code.length > 0) {
                     productsHasCode.push(product)
+                } else {
+                    productsNoCode.push(product)
                 }
             }
             console.log('HOME_INFO_RESPONSE')

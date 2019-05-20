@@ -126,8 +126,8 @@ const styles = StyleSheet.create({
     borderRadius: csstyles.vars.csInputBorderRaius,
     paddingHorizontal: csstyles.vars.csInputHorizontalPadding,
     overflow: 'hidden',
-    backgroundColor: csstyles.vars.csBlack,
-    color: csstyles.vars.csWhite,
+    backgroundColor: csstyles.vars.csWhite,
+    color: csstyles.vars.csGrey,
     ...csstyles.text.regular,
     fontSize: 16
   },

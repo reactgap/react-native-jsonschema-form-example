@@ -40,6 +40,7 @@ class ProductDocumentation extends PureComponent<Props> {
   render() {
     return (
       <View style={styles.screen}>
+      <View style={csstyles.border.shadowView}/>
        <ScrollView style={csstyles.base.full}>
           <View style={styles.markdown}>
             <Markdown>

@@ -54,14 +54,14 @@ const styles = StyleSheet.create({
     height: navNotificationSize,
     borderRadius: navNotificationSize / 2,
     marginRight: navUserAvatarRightPadding,
-    backgroundColor: csstyles.vars.csGreen,
+    backgroundColor: csstyles.vars.csWhite,
     justifyContent: 'center',
     alignItems: 'center'
   },
   placeholderText: {
     ...csstyles.text.medium,
     fontSize: 13,
-    color: csstyles.vars.csLight,
+    color: csstyles.vars.csOrange,
     textAlign: 'center'
   }
 })

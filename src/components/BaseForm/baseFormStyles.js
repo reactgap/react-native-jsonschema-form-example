@@ -7,10 +7,10 @@ import { DEVICE_SCREEN_HEIGHT,
   IS_DEVICE_SHORT_HEIGHT,
   IS_DEVICE_VERY_LONG_WIDTH } from '../../utils/deviceHelper'
 
-let logoSize = 150
+let logoSize = 70
 
 if (IS_DEVICE_SHORT_HEIGHT) {
-  logoSize = 80
+  logoSize = 55
 } else if (IS_DEVICE_VERY_LONG_WIDTH) {
   logoSize = 300
 }
@@ -18,7 +18,7 @@ if (IS_DEVICE_SHORT_HEIGHT) {
 const baseFormStyles = StyleSheet.create({
   screen: {
     ...csstyles.base.full,
-    backgroundColor: csstyles.vars.csGrey
+    backgroundColor: csstyles.vars.csWhite
   },
   container: {
     ...csstyles.base.fullTopBottomSafe,
@@ -28,15 +28,14 @@ const baseFormStyles = StyleSheet.create({
     ...csstyles.base.fullTopBottomSafe
   },
   top: {
-    ...csstyles.base.full,
+    height: 175,
     position: 'relative',
     justifyContent: 'center',
     alignItems: 'center'
   },
   logo: {
     width: logoSize,
-    height: logoSize,
-    borderRadius: 8
+    height: logoSize
   },
   backBtn: {
     position: 'absolute',
@@ -50,14 +49,14 @@ const baseFormStyles = StyleSheet.create({
   },
   formTitle: {
     ...csstyles.text.bold,
-    ...csstyles.text.textPrimary,
+    ...csstyles.text.textMain,
     textAlign: 'center',
-    fontSize: 19,
+    fontSize: 25,
     marginBottom: csstyles.vars.csBoxSpacing
   },
   formDesc: {
     ...csstyles.text.regular,
-    ...csstyles.text.textWhite,
+    ...csstyles.text.textMain,
     textAlign: 'center',
     fontSize: 14,
     marginBottom: csstyles.vars.csBoxSpacing

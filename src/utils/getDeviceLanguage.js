@@ -2,7 +2,7 @@
 
 import { Platform, NativeModules } from 'react-native'
 
-const supportedLanguages = ['en', 'de']
+const supportedLanguages = ['vi']
 
 const getDeviceLanguage = () => {
   let languages = []

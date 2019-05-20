@@ -9,14 +9,18 @@ import { View,
 import csstyles from '../../../csstyles'
 import { connect } from 'react-redux'
 import ApplicationList from '../SearchApplication/ApplicationList'
+import ApplicationSummary from './ApplicationSummary'
 import FilterView from '../FilterView'
 import Services from '../SearchApplication/Services.json'
 import FilterTime from '../SearchApplication/FilterTime.json'
 import applicationActions from '../../../actions/application.actions'
 import FloatButton from '../../../components/Button/FloatButton/FloatButton'
+import { ReduxState } from '../../../reducers/types.reducer'
+import { Summary } from '../../../types'
 
 type Props = {
-
+  summary: Summary,
+  isLoading: Boolean
 }
 
 type State = {
@@ -30,7 +34,8 @@ class MyApplication extends PureComponent<Props, State> {
   }
 
   componentDidMount() {
-    applicationActions.filterApplication()
+    // applicationActions.filterApplication()
+    applicationActions.filterApplicationSummary()
   }
 
   onChange = (value: String, index: Number, type: String) => {
@@ -55,12 +60,16 @@ class MyApplication extends PureComponent<Props, State> {
 
   render() {
     const { service, time } = this.state
-    const { applications, isLoading } = this.props
+    const { summary, isLoading } = this.props
+    const total = summary && summary.info.total ? summary.info.total : 0
+    const headerTitle = "Tổng số hồ sơ (" +  total + ")"
     return (
       <View style={styles.screen}>
         <FilterView service={service} time={time} onChange={this.onChange}/>
-        <ApplicationList applications={applications} isLoading={isLoading} type={'searchApplication'}/>
-        <FloatButton type="danger" icon="plus" disabled={false} onPress={this.onPress}/>
+        {/* <ApplicationList applications={applications} isLoading={isLoading} type={'searchApplication'}/> */}
+        <Text style={styles.headerText}>{headerTitle}</Text>
+        <ApplicationSummary summary={summary} isLoading={isLoading}/>
+        <FloatButton type="main" icon="plus" disabled={false} onPress={this.onPress}/>
       </View>
     )
   }
@@ -69,14 +78,21 @@ class MyApplication extends PureComponent<Props, State> {
 const styles = StyleSheet.create({
   screen: {
     ...csstyles.base.full,
-    backgroundColor: csstyles.vars.csGreyDark
+    backgroundColor: csstyles.vars.csContainer
+  },
+  headerText: {
+    ...csstyles.text.textMain,
+    ...csstyles.text.regular,
+    marginLeft: 20,
+    paddingTop: csstyles.vars.csBoxMargin,
+    fontSize: 16
   }
 })
 
 const  mapStateToProps  = (state: ReduxState) => {
-  const { applications, isLoading } = state.application
+  const { summary, isLoading } = state.application
   return {
-    applications,
+    summary,
     isLoading
   }
 }

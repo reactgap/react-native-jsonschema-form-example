@@ -1,7 +1,7 @@
 {
   "wallet": {
     "commisson": {
-      "value": 100000,
+      "value": 1000000,
       "currencyISO": "VND"
     },
     "credit": 100
@@ -10,8 +10,8 @@
     {
       "id": 1,
       "name": "Bảo Hiểm",
-      "orgainization": "Chubb",
-      "imageUrl": "http://bloomaxx.com/wp-content/uploads/2018/05/tu-tin-du-ngoan-5-chau-voi-bao-hiem-du-lich-chubb-1.jpg",
+      "orgainization": "Hanwha Life",
+      "imageUrl": "https://i.imgur.com/DOxJ1QY.png",
       "active": true,
       "currencyISO": "VND",
       "informationURL": "https://www.chubb.com/vn-vn/personal/general-protection.aspx",
@@ -22,33 +22,33 @@
       "id": 2,
       "name": "Vay Tiêu Dùng",
       "orgainization": "TPBank",
-      "imageUrl": "https://static.ybox.vn/2018/7/1/1532938260001-TPBank-logo.png",
+      "imageUrl": "https://i.imgur.com/DOxJ1QY.png",
       "active": true,
       "currencyISO": "VND",
       "informationURL": "https://www.chubb.com/vn-vn/personal/general-protection.aspx",
-      "code": "",
+      "code": "1SFsLD",
       "descriptions": "Some *really* basic **Markdown**.{'\n\n'} | # | Name   | Age |{'\n'}|---|--------|-----|{'\n'}| 1 | John   | 19  |{'\n'}| 2 | Sally  | 18  |{'\n'}"
     },
     {
       "id": 3,
       "name": "Bảo Hiểm Nhân Thọ",
       "orgainization": "ManuLife",
-      "imageUrl": "https://baohiemtietkiem.com/wp-content/uploads/2018/07/gioi-thieu-ve-manulife.jpg",
+      "imageUrl": "https://i.imgur.com/DOxJ1QY.png",
       "active": true,
       "currencyISO": "VND",
       "informationURL": "https://www.chubb.com/vn-vn/personal/general-protection.aspx",
-      "code": "",
+      "code": null,
       "descriptions": "Some *really* basic **Markdown**.{'\n\n'} | # | Name   | Age |{'\n'}|---|--------|-----|{'\n'}| 1 | John   | 19  |{'\n'}| 2 | Sally  | 18  |{'\n'}"
     },
     {
       "id": 4,
       "name": "C-Care",
       "orgainization": "Chubb",
-      "imageUrl": "https://www.sapo.vn/blog/wp-content/uploads/2017/06/cach-quang-cao-digital-bat-dong-san-hieu-qua.jpg",
+      "imageUrl": "https://i.imgur.com/DOxJ1QY.png",
       "active": true,
       "currencyISO": "VND",
       "informationURL": "https://www.chubb.com/vn-vn/personal/general-protection.aspx",
-      "code": "1SFKLD",
+      "code": null,
       "descriptions": "Some *really* basic **Markdown**.{'\n\n'} | # | Name   | Age |{'\n'}|---|--------|-----|{'\n'}| 1 | John   | 19  |{'\n'}| 2 | Sally  | 18  |{'\n'}"
     }
   ]

@@ -63,7 +63,7 @@ class Hud extends PureComponent<Props> {
         <View style={styles.loadingContainer}>
           <ActivityIndicator
             size="large"
-            color={csstyles.vars.csGreen}
+            color={csstyles.vars.csOrange}
             style={styles.indicator}
           />
         </View>
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
     marginTop: csstyles.vars.csBoxSpacing
   },
   loadingContainer: {
-    borderColor: csstyles.vars.csGreen,
+    borderColor: csstyles.vars.csOrange,
     borderWidth: csstyles.vars.csBoxBorderWidth,
     backgroundColor: csstyles.vars.csGrey,
     width: 70,

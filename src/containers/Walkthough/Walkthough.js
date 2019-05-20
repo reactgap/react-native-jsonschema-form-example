@@ -7,7 +7,7 @@ import csstyles from '../../csstyles'
 import CSButton from '../../components/Button/CSButton/CSButton'
 import walkthoughTexts from '../../../assets/locales/walkthough.json'
 import ViewPager from '../../components/ViewPager/ViewPager'
-import { DEVICE_SCREEN_WIDTH, IS_DEVICE_SHORT_HEIGHT, switchDevice } from '../../utils/deviceHelper'
+import { DEVICE_SCREEN_WIDTH, IS_DEVICE_SHORT_HEIGHT, switchDevice, DEVICE_TOP_SAFE } from '../../utils/deviceHelper'
 import Photo from '../../components/Photo/Photo'
 import { currLanguage, i18nTranslator } from '../../utils/i18n'
 // import { type ScreenNavigationProps } from '../../types'
@@ -15,12 +15,14 @@ import UniversalScreenContainer from '../../components/UniversalScreenContainer/
 
 const WalkthoughPage = (page: { title: string, description: string, photoURL: string }) => (
   <View style={styles.walkthoughPage}>
-    <Photo
-      url={page.photoURL}
-      wrapStyle={styles.walkthoughWrap}
-      photoStyle={styles.walkthoughPhoto}
-    />
-    <View style={csstyles.base.fullCenter}>
+    <View style={{ backgroundColor: csstyles.vars.csGreenDeep }}>
+      <Photo
+        url={page.photoURL}
+        wrapStyle={styles.walkthoughWrap}
+        photoStyle={styles.walkthoughPhoto}
+      />
+    </View>
+    <View style={styles.contentContainer}>
       <Text style={styles.walkthoughTitle}>{page.title}</Text>
       <Text style={styles.walkthoughDesc}>{page.description}</Text>
     </View>
@@ -82,8 +84,8 @@ class Walkthough extends PureComponent<Props, State> {
         <View style={styles.btnsGroup}>
           <UniversalScreenContainer>
             <CSButton
-              title={'LOGIN'}
-              type="primary"
+              title={i18nTranslator('JOIN_MOMI')}
+              type="primaryDark"
               onPress={() => navigation.push('PhoneRegister')}
             />
           </UniversalScreenContainer>
@@ -95,39 +97,34 @@ class Walkthough extends PureComponent<Props, State> {
 
 const styles = StyleSheet.create({
   screen: {
-    ...csstyles.base.fullTopBottomSafe,
-    backgroundColor: csstyles.vars.csGrey
+    ...csstyles.base.fullBottomSafe,
+    backgroundColor: csstyles.vars.csGreenLight
   },
   btnsGroup: {
     padding: csstyles.vars.csBoxSpacing2x
   },
   walkthoughPage: {
     flex: 1,
-    paddingHorizontal: csstyles.vars.csBoxSpacing2x,
-    paddingTop: switchDevice(0, csstyles.vars.csBoxSpacing),
     paddingBottom: 0
   },
   walkthoughWrap: {
-    width:
-      DEVICE_SCREEN_WIDTH - csstyles.vars.csBoxSpacing2x * 2 * (IS_DEVICE_SHORT_HEIGHT ? 2 : 1),
-    height:
-      DEVICE_SCREEN_WIDTH - csstyles.vars.csBoxSpacing2x * 2 * (IS_DEVICE_SHORT_HEIGHT ? 2 : 1),
-    marginLeft: IS_DEVICE_SHORT_HEIGHT ? csstyles.vars.csBoxSpacing2x : 0,
-    borderRadius: csstyles.vars.csBoxBorderRadius2x,
+    marginTop: DEVICE_TOP_SAFE,
+    width: DEVICE_SCREEN_WIDTH,
+    height: DEVICE_SCREEN_WIDTH,
     overflow: 'hidden'
   },
   walkthoughTitle: {
     ...csstyles.text.bold,
-    color: csstyles.vars.csGreen,
+    color: csstyles.vars.csWhite,
     textAlign: 'center',
     marginBottom: csstyles.vars.csBoxSpacing,
-    fontSize: 14
+    fontSize: 21
   },
   walkthoughDesc: {
     ...csstyles.text.regular,
     color: csstyles.vars.csLight,
     textAlign: 'center',
-    fontSize: 14
+    fontSize: 18
   },
   walkthoughPhoto: {
     overflow: 'hidden'
@@ -136,6 +133,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  contentContainer: {
+    ...csstyles.base.fullCenter,
+    paddingHorizontal: csstyles.vars.csBoxSpacing2x,
+    // backgroundColor: 'red'
   }
 })
 

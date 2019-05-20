@@ -6,31 +6,35 @@ import { Header } from 'react-navigation'
 import { DEVICE_BOTTOM_SAFE,
   DEVICE_TOP_SAFE,
   IS_DEVICE_SHORT_HEIGHT,
-  IS_DEVICE_VERY_LONG_WIDTH } from './utils/deviceHelper'
+  IS_DEVICE_VERY_LONG_WIDTH , DEVICE_SCREEN_WIDTH} from './utils/deviceHelper'
 
-const widthProduct = Dimensions.get('window').width/2 - 24
+const marginView = 10
+const widthProduct = (Dimensions.get('window').width - marginView * 2)/3 - marginView * 3
 
 const vars = {
   csGreyDark:'#363A44',
-  csGrey: '#1C1E24',
-  csGreen: '#2d6446',
+  csGrey: '#515151',
+  csGreen: '#00A763',
+  csGreenLight: '#5D9800',
+  csGreenDark: '#163D26',
   csOrange: '#f88100',
-  csGreenDeep: '#137ab1', 
+  csGreenDeep: '#005E4D', 
   csGreenBorder: '#154864',
   csDanger: '#DC3545',
   csBrown: '#5F5F5F',
   csLight: '#D8D8D8',
   csWhite: '#FFFFFF',
   csBlack: '#000000',
-  csBlue: '#3D4D8D',
+  csBlue: '#005A8A',
   csDollar: '#2B593F',
-  csBoxMargin: 16,
+  csContainer: '#F4F4F4',
+  csBoxMargin: marginView,
   csHeader: DEVICE_TOP_SAFE + 44,
   csBoxBorderWidth: 2,
   csBoxBorderRadius: 6,
   csBoxBorderRadius2x: 16,
   csBoxSpacingHalf: IS_DEVICE_VERY_LONG_WIDTH ? 6 : 4,
-  csBoxSpacing: IS_DEVICE_VERY_LONG_WIDTH ? 12 : 8,
+  csBoxSpacing: IS_DEVICE_VERY_LONG_WIDTH ? 20 : 8,
   csBoxSpacing2x: IS_DEVICE_VERY_LONG_WIDTH ? 24 : 16,
   csInputHeight: IS_DEVICE_SHORT_HEIGHT ? 30 : 44,
   csInputBorderRaius: IS_DEVICE_SHORT_HEIGHT ? 15 : 22,
@@ -41,21 +45,23 @@ const vars = {
 
 const mixin = {
   csBlackOpacity: (opacity: number) => `rgba(0, 0, 0, ${opacity.toFixed(2)})`,
-  csGreyOpacity: (opacity: number) => `rgba(34, 34, 34, ${opacity.toFixed(2)})`
+  csGreyOpacity: (opacity: number) => `rgba(34, 34, 34, ${opacity.toFixed(2)})`,
+  csGreenLightOpacity: (opacity: number) => `rgba(0, 167, 99, ${opacity.toFixed(2)})`,
+  csGreenDeepOpacity: (opacity: number) => `rgba(0, 94, 77, ${opacity.toFixed(2)})`
 }
 
 const text = StyleSheet.create({
   regular: {
-    fontFamily: 'Montserrat-Regular'
+    fontFamily: 'SFProDisplay-Regular'
   },
   medium: {
-    fontFamily: 'Montserrat-Medium'
+    fontFamily: 'SFProDisplay-Medium'
   },
   bold: {
-    fontFamily: 'Montserrat-Bold'
+    fontFamily: 'SFProDisplay-Bold'
   },
   textPrimary: {
-    color: vars.csGreen
+    color: vars.csBlack
   },
   textWhite: {
     color: vars.csWhite
@@ -65,6 +71,9 @@ const text = StyleSheet.create({
   },
   textSecondary: {
     color: vars.csBrown
+  },
+  textMain: {
+    color: vars.csGrey
   },
   textLight: {
     color: vars.csLight
@@ -105,6 +114,10 @@ const base = StyleSheet.create({
     flex: 1,
     paddingTop: DEVICE_TOP_SAFE 
   },
+  fullBottomSafe: {
+    flex: 1,
+    paddingBottom: DEVICE_BOTTOM_SAFE
+  },
   fullTopBottomSafe: {
     flex: 1,
     paddingTop: DEVICE_TOP_SAFE,
@@ -135,6 +148,11 @@ const base = StyleSheet.create({
   },
   column: {
     flexDirection: 'column'
+  },
+  columnCenter: {
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   relative: {
     position: 'relative'
@@ -219,12 +237,36 @@ const base = StyleSheet.create({
     marginHorizontal: vars.csBoxMargin
   },
   scrollableTabBar: {
+    overflow: 'visible',
     borderWidth:0,
-    backgroundColor: vars.csGrey
+    backgroundColor: vars.csWhite
   },
   viewBelowHeader: {
     marginTop: Header.HEIGHT,
     flex: 1
+  },
+  textGroup: {
+    paddingBottom: vars.csBoxSpacing2x,
+    fontSize: 18
+  },
+  inputIcon: {
+    width: vars.csInputHeight,
+    height: vars.csInputHeight,
+    borderRadius: vars.csInputBorderRaius,
+    backgroundColor: vars.csGreen,
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    top: -2,
+    right: -2
+  },
+  shadow: {
+    // IOS
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    // Android
+    elevation: 5,
   }
 })
 
@@ -241,7 +283,15 @@ const border = StyleSheet.create({
   },
   primary: {
     borderColor: vars.csGreen
-  }
+  },
+  shadowView: {
+    overflow: 'visible',
+    height: 0.5,
+    width: DEVICE_SCREEN_WIDTH,
+    backgroundColor: vars.csWhite,
+    ...base.shadow,
+    shadowOpacity: 0.5
+  },
 })
 
 const indicatorCustomStyles = {

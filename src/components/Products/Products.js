@@ -41,27 +41,25 @@ class Products extends PureComponent<Props> {
     />
   )
 
-  renderEmpty = () => {
-    return (
-      <View>
-        <Text style={[{ color: 'white' }]}>a</Text>
-      </View>
-    )
-  }
+  // renderEmpty = () => {
+  //   return (
+  //     <View>
+  //       <Text style={[{ color: 'white' }]}>a</Text>
+  //     </View>
+  //   )
+  // }
 
   render() {
     const { products } = this.props
-    console.log('products', products)
     return (
       <View style={styles.screen}>
         <FlatList
           style={csstyles.base.full}
           contentContainerStyle={styles.listContainer}
           showsVerticalScrollIndicator={false}
-          ListEmptyComponent={this.renderEmpty}
           data={products}
           keyExtractor={item => `${item.id}`}
-          numColumns={2}
+          numColumns={3}
           renderItem={this.renderItem}
           windowSize={20}
         />
@@ -73,7 +71,11 @@ class Products extends PureComponent<Props> {
 const styles = StyleSheet.create({
   screen: {
     ...csstyles.base.full,
-    backgroundColor: csstyles.vars.csBlack
+    backgroundColor: csstyles.vars.csWhite,
+    margin: csstyles.vars.csBoxMargin,
+    borderRadius: 10,
+    ...csstyles.base.shadow
+    
   },
   listContainer: {
     paddingBottom: csstyles.vars.csBoxSpacing2x

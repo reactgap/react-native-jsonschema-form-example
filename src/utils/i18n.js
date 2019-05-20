@@ -4,6 +4,7 @@ import i18next from 'i18next'
 import { reactI18nextModule } from 'react-i18next/dist/es/context'
 // import { type I18NKey } from '../types'
 import appTextsEn from '../../assets/locales/app/en.json'
+import appTextsVi from '../../assets/locales/app/vi.json'
 import getDeviceLanguage from './getDeviceLanguage'
 
 const languageDetector = {
@@ -21,9 +22,12 @@ export const i18nInit = () => i18next
     resources: {
       en: {
         translation: appTextsEn
+      },
+      vi: {
+        translation: appTextsVi
       }
     },
-    fallbackLng: 'en',
+    fallbackLng: 'vi',
     lng: getDeviceLanguage(),
     load: 'languageOnly',
     debug: process.env.NODE_ENV !== 'production',

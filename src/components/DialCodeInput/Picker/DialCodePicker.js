@@ -218,7 +218,7 @@ const styles = StyleSheet.create({
   modalWrapper: {
     flex: 1,
     position: 'relative',
-    backgroundColor: csstyles.mixin.csBlackOpacity(IS_DEVICE_VERY_LONG_WIDTH ? 0.8 : 0.2)
+    backgroundColor: csstyles.mixin.csBlackOpacity(0.8)
   },
   actionBtnContainer: {
     ...csstyles.base.rowCenterLineBetween,
@@ -229,10 +229,10 @@ const styles = StyleSheet.create({
   contentContainer: {
     width: '100%',
     overflow: 'hidden',
-    backgroundColor: csstyles.vars.csLight,
+    backgroundColor: csstyles.vars.csWhite,
     borderColor: csstyles.vars.csGreen,
     borderWidth: csstyles.vars.csBoxBorderWidth,
-    borderBottomColor: csstyles.vars.csLight,
+    borderBottomColor: csstyles.vars.csWhite,
     borderTopLeftRadius: csstyles.vars.csBoxBorderRadius,
     borderTopRightRadius: csstyles.vars.csBoxBorderRadius,
     paddingBottom: DEVICE_BOTTOM_SAFE

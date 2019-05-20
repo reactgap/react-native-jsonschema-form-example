@@ -36,7 +36,7 @@ class ProductScreen extends Component<Props, State> {
     const product = state.params.product || null
     const name = product.name || "Product Detail"
     return {
-      headerLeft: <CSBackButton wrapperStyle={styles.backBtn}/>,
+      headerLeft: <CSBackButton wrapperStyle={styles.backBtn} lighterBg={false}/>,
       headerTitle: <NavTitle titleCode={name} />,
       headerTintColor: csstyles.vars.csGreen,
       headerTruncatedBackTitle: true,
@@ -59,9 +59,9 @@ class ProductScreen extends Component<Props, State> {
         style={[{marginTop: 0, flex: 1}]}
         initialPage={0}
         onChangeTab={this.handleChangeTab}
-        tabBarInactiveTextColor={csstyles.vars.csWhite}
-        tabBarActiveTextColor={csstyles.vars.csGreen}
-        tabBarUnderlineStyle={{ backgroundColor: csstyles.vars.csGreen }}
+        tabBarInactiveTextColor={csstyles.vars.csGrey}
+        tabBarActiveTextColor={csstyles.vars.csGrey}
+        tabBarUnderlineStyle={{ backgroundColor: csstyles.vars.csGreenDeep }}
         renderTabBar={() => <DefaultTabBar style={csstyles.base.scrollableTabBar}/>}
       >
           <ProductPolicy tabLabel='Policy' description={'Some *really* basic **Markdown*'}/>
@@ -113,8 +113,7 @@ class ProductScreen extends Component<Props, State> {
     return (
       <View
         style={{
-          ...csstyles.base.full,
-          backgroundColor: csstyles.vars.csGrey
+          flex: 1
         }}
       >
         <Hud {...hudConfig} />
@@ -143,6 +142,10 @@ class ProductScreen extends Component<Props, State> {
 }
 
 const styles = StyleSheet.create({
+  screen: {
+    ...csstyles.base.full,
+    backgroundColor: csstyles.vars.csGrey
+  },
   backBtn: {
     left: csstyles.vars.csBoxSpacing
   },
