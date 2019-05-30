@@ -26,7 +26,7 @@ class ProductReport extends PureComponent<Props, State> {
     //making a view to show to while loading the webpage
     return (
       <ActivityIndicator
-        color="red"
+        color={csstyles.vars.csGreen}
         size="small"
         style={styles.activityIndicatorStyle}
       />
@@ -34,11 +34,12 @@ class ProductReport extends PureComponent<Props, State> {
   }
 
   render() {
+    const { url } = this.props
     return (
       <View style={styles.screen}>
         <View style={csstyles.border.shadowView}/>
         <WebView
-          source={{uri: 'https://github.com/facebook/react-native'}}
+          source={{uri: url}}
           style={{marginTop: 0, justifyContent: 'center', alignItems: 'center', flex:1}}
           renderLoading={this.activityIndicatorLoadingView}
           startInLoadingState={true}  

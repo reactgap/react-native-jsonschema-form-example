@@ -4,7 +4,8 @@ import React, { Component } from 'react'
 import { 
   StyleSheet,
   View,
-  Text
+  Text,
+  TouchableOpacity
 } from 'react-native'
 
 import { SummaryItem } from '../../../types'
@@ -35,7 +36,7 @@ class ApplicationSummaryItem extends Component<Props> {
 
   onPress = () => {
     const { onPress, data } = this.props
-    onPress(data)
+    onPress()
   }
 
   colorWithType = (type: Number) => {
@@ -80,6 +81,10 @@ class ApplicationSummaryItem extends Component<Props> {
     console.log('data',data)
     const statusInfo = this.colorWithType(data.type)
     return (
+      <TouchableOpacity
+      onPress={this.onPress}
+      activeOpacity={0.6}
+    >
       <View style={styles.container}>
         <View style={styles.centerContent}>
           <Text style={styles.statusText}>{statusInfo.text}</Text>
@@ -99,6 +104,7 @@ class ApplicationSummaryItem extends Component<Props> {
             containerStyle={{ position: 'absolute', top: -1, left: 0 }}
         />
       </View>
+    </TouchableOpacity>
     )
   }
 }

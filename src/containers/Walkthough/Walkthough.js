@@ -15,7 +15,7 @@ import UniversalScreenContainer from '../../components/UniversalScreenContainer/
 
 const WalkthoughPage = (page: { title: string, description: string, photoURL: string }) => (
   <View style={styles.walkthoughPage}>
-    <View style={{ backgroundColor: csstyles.vars.csGreenDeep }}>
+    <View style={{ backgroundColor: '#2B593F' }}>
       <Photo
         url={page.photoURL}
         wrapStyle={styles.walkthoughWrap}
@@ -98,7 +98,7 @@ class Walkthough extends PureComponent<Props, State> {
 const styles = StyleSheet.create({
   screen: {
     ...csstyles.base.fullBottomSafe,
-    backgroundColor: csstyles.vars.csGreenLight
+    backgroundColor: '#148440'
   },
   btnsGroup: {
     padding: csstyles.vars.csBoxSpacing2x

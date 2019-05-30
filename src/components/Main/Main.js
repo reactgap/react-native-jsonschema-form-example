@@ -19,6 +19,8 @@ import Report from '../../containers/Report/Report'
 import Support from '../../containers/Support/Support'
 import ProductScreen from '../Products/ProductScreen'
 import ApplicationDetail from '../../containers/Applications/Detail/ApplicationDetail'
+import ApplicationList from '../../containers/Applications/SearchApplication/ApplicationList'
+
 
 const MainRootNavigationOptions: NavigationScreenConfig<NavigationStackScreenOptions> = ({
   navigation,
@@ -101,6 +103,12 @@ const MainRoot = createStackNavigator({
   },
   ApplicationDetail: {
     screen: ApplicationDetail,
+    navigationOptions: {
+      headerStyle: csstyles.nav.header
+    }
+  },
+  ApplicationList: {
+    screen: ApplicationList,
     navigationOptions: {
       headerStyle: csstyles.nav.header
     }

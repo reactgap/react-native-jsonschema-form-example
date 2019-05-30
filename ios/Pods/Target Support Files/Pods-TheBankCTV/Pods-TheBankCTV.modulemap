@@ -1,0 +1,6 @@
+module Pods_TheBankCTV {
+  umbrella header "Pods-TheBankCTV-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     height: csstyles.vars.csInputHeight,
     width: csstyles.vars.csInputHeight,
     borderRadius: csstyles.vars.csInputBorderRaius,
-    backgroundColor: csstyles.vars.csGreenLight,
+    backgroundColor: csstyles.vars.csGreen,
     justifyContent: 'center',
     alignItems: 'center',
      // IOS

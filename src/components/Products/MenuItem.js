@@ -107,6 +107,7 @@ const styles = StyleSheet.create({
       height: 48
     },
     providerName: {
+        ...csstyles.text.regular,
         ...csstyles.text.textMain,
         textAlign: 'center',
         fontSize: 12,
@@ -115,11 +116,11 @@ const styles = StyleSheet.create({
         marginBottom: 0
     },
     serviceName: {
+        ...csstyles.text.regular,
         textAlign: 'center',
         fontSize: 11,
-        color: '#FFFFFF',
         lineHeight: 17,
-        color: csstyles.vars.textMain,
+        ...csstyles.text.textMain,
         paddingBottom: 4
     }
 })

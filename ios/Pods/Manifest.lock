@@ -10,6 +10,9 @@ PODS:
   - boost-for-react-native (1.63.0)
   - BVLinearGradient (2.5.4):
     - React
+  - Charts (3.3.0):
+    - Charts/Core (= 3.3.0)
+  - Charts/Core (3.3.0)
   - CodePush (5.6.0):
     - Base64 (~> 1.1)
     - JWT (~> 3.0.0-beta.7)
@@ -36,9 +39,6 @@ PODS:
     - Folly (= 2016.10.31.00)
     - React/jschelpers
     - React/jsinspector
-  - React/DevSupport (0.57.8):
-    - React/Core
-    - React/RCTWebSocket
   - React/fishhook (0.57.8)
   - React/jschelpers (0.57.8):
     - Folly (= 2016.10.31.00)
@@ -60,9 +60,10 @@ PODS:
     - React/Core
     - React/fishhook
     - React/RCTBlob
-  - RNReanimated (1.0.1):
+  - RNSVG (9.4.0):
     - React
   - SSZipArchive (2.2.1)
+  - SwiftyJSON (5.0.0)
   - yoga (0.57.8.React)
 
 DEPENDENCIES:
@@ -70,19 +71,20 @@ DEPENDENCIES:
   - AppCenter/Crashes (~> 1.14.0)
   - AppCenterReactNativeShared (~> 1.13.0)
   - BVLinearGradient (from `../node_modules/react-native-linear-gradient`)
+  - Charts (= 3.3)
   - CodePush (from `../node_modules/react-native-code-push`)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
   - React/Core (from `../node_modules/react-native`)
   - React/CxxBridge (from `../node_modules/react-native`)
-  - React/DevSupport (from `../node_modules/react-native`)
   - React/RCTAnimation (from `../node_modules/react-native`)
   - React/RCTImage (from `../node_modules/react-native`)
   - React/RCTNetwork (from `../node_modules/react-native`)
   - React/RCTText (from `../node_modules/react-native`)
   - React/RCTWebSocket (from `../node_modules/react-native`)
-  - RNReanimated (from `../node_modules/react-native-reanimated`)
+  - RNSVG (from `../node_modules/react-native-svg`)
+  - SwiftyJSON (= 5.0)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -91,8 +93,10 @@ SPEC REPOS:
     - AppCenterReactNativeShared
     - Base64
     - boost-for-react-native
+    - Charts
     - JWT
     - SSZipArchive
+    - SwiftyJSON
 
 EXTERNAL SOURCES:
   BVLinearGradient:
@@ -107,8 +111,8 @@ EXTERNAL SOURCES:
     :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
   React:
     :path: "../node_modules/react-native"
-  RNReanimated:
-    :path: "../node_modules/react-native-reanimated"
+  RNSVG:
+    :path: "../node_modules/react-native-svg"
   yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -118,16 +122,18 @@ SPEC CHECKSUMS:
   Base64: cecfb41a004124895a7bcee567a89bae5a89d49b
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   BVLinearGradient: b0b70acf63ee888829b7c2ebbf6b50e227396e55
+  Charts: ec1f57f9340054155691e84d4544a1d239d382c5
   CodePush: f6b348759cdc42c734d9c3a46ceb2997c270b12e
   DoubleConversion: bb338842f62ab1d708ceb63ec3d999f0f3d98ecd
   Folly: c89ac2d5c6ab169cd7397ef27485c44f35f742c7
   glog: e8acf0ebbf99759d3ff18c86c292a5898282dcde
   JWT: 05028b9624591bba9681bb57df2c5f95fa258bad
   React: 1fe0eb13d90b625d94c3b117c274dcfd2e760e11
-  RNReanimated: 45d9313b7a62318ed00d60a811937321e43e076e
+  RNSVG: 4834be1d644eb77f0e3f6de851881b83758a3124
   SSZipArchive: 8e859da2520142e09166bc9161967db296e9d02f
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
 
-PODFILE CHECKSUM: af43da9e74b888d2a2cddd44508dd64321076764
+PODFILE CHECKSUM: ccc65205a8a704615a739966d3782fcb4785bbd0
 
 COCOAPODS: 1.5.3

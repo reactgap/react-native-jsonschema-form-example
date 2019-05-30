@@ -14,6 +14,7 @@ import csstyles from '../../../csstyles'
 import { type ScreenNavigationProps, type Summary, type SummaryItem, type I18NComponent, type ReduxState } from '../../../types'
 import { IS_DEVICE_VERY_LONG_WIDTH } from '../../../utils/deviceHelper'
 import ApplicationSummaryItem from './ApplicationSummaryItem'
+import applicationActions from '../../../actions/application.actions'
 
 type Props = ScreenNavigationProps<{}> & I18NComponent &  {
   isLoading: Boolean,
@@ -30,10 +31,9 @@ class ApplicationSummary extends PureComponent<Props,State> {
 
   // }
 
-  onSelect = (application: Application) => {
-    this.setState({
-      registerConfirm: true
-    })
+  onSelect = () => {
+    console.log('onSelect')
+    applicationActions.navigateApplicationList()
   }
 
   renderItem: ListRenderItem<SummaryItem> = ({ item, index }) => (

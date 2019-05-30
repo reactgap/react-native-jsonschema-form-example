@@ -18,7 +18,7 @@ target 'TheBankCTV' do
 #    'RCTLinkingIOS',
 #    'RCTGeolocation',
 #    'RCTVibration',
-    'DevSupport',
+#    'DevSupport',
 #    'RCTBlob',
 #    'RCTSettings',
     ]
@@ -33,9 +33,12 @@ target 'TheBankCTV' do
     pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
     pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
     pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
-    pod 'CodePush', :path => '../node_modules/react-native-code-push'
-    pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
-#    pod 'RNSVG', :path => '../node_modules/react-native-svg'
+    pod 'CodePush', :path => '../node_modules/react-native-code-push'   
+    
+    pod 'SwiftyJSON', '5.0'
+    pod 'Charts', '3.3'
+#    pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
+    pod 'RNSVG', :path => '../node_modules/react-native-svg'
 
 #
 #    pod 'react-native-fast-image', :path => '../node_modules/react-native-fast-image'

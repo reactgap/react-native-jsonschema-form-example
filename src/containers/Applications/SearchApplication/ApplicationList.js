@@ -9,13 +9,16 @@ import { View,
   Modal,
   Text,
   type ListRenderItem } from 'react-native'
+import { connect } from 'react-redux'
 import { type NavigationTabScreenOptions } from 'react-navigation'
 import { i18nTranslator } from '../../../utils/i18n'
 import csstyles from '../../../csstyles'
-import { type ScreenNavigationProps, type Application, type I18NComponent, type ReduxState } from '../../../types'
+import { type ScreenNavigationProps, type Application, type I18NComponent } from '../../../types'
+import { ReduxState } from '../../../reducers/types.reducer'
 import { IS_DEVICE_VERY_LONG_WIDTH } from '../../../utils/deviceHelper'
 import ApplicationListItem from './ApplicationListItem'
 import Hud, { type HudConfig } from '../../../components/Hud/Hud'
+import applicationActions from '../../../actions/application.actions'
 
 type Props = ScreenNavigationProps<{}> & I18NComponent &  {
   isLoading: Boolean,
@@ -30,6 +33,11 @@ class ApplicationList extends PureComponent<Props,State> {
 
   state: State = {
     registerConfirm: false
+  }
+
+  componentDidMount() {
+    // applicationActions.filterApplication()
+    applicationActions.applicationListByType()
   }
 
   onSelect = (application: Application) => {
@@ -149,4 +157,14 @@ const styles = StyleSheet.create({
   }
 })
 
-export default (ApplicationList)
+const mapStateToProps = (state: ReduxState) => {
+  const { isLoading, applications } = state.application
+  return {
+    applications,
+    isLoading
+  }
+}
+
+export default connect(
+  mapStateToProps
+)(ApplicationList)

@@ -2,7 +2,7 @@
 import { REHYDRATE } from 'redux-persist'
 import { rootNavigator } from '../components/Root/Root'
 import { NavigationActions } from 'react-navigation'
-
+import {  APPLICATION_LIST_NAVIGATE } from '../actions/application.actions'
 const initialState = rootNavigator.router.getStateForAction(
   rootNavigator.router.getActionForPathAndParams('Main')
 )
@@ -14,6 +14,20 @@ const reducer = (state = initialState, action) => {
       return rootNavigator.router.getStateForAction(
         NavigationActions.navigate({
           routeName: 'Main'
+        }),
+        state
+      )
+    }
+
+    case 'PRODUCT_SELECTED': {
+      const { product, id } = action.payload
+      return rootNavigator.router.getStateForAction(
+        NavigationActions.navigate({
+          routeName: 'Product',
+          params: { 
+            product,
+            id
+          }
         }),
         state
       )
@@ -41,6 +55,18 @@ const reducer = (state = initialState, action) => {
           params: {
             application,
             id
+          }
+        }),
+        state
+      )
+    }
+
+    case APPLICATION_LIST_NAVIGATE: {
+      return rootNavigator.router.getStateForAction(
+        NavigationActions.navigate({
+          routeName: 'ApplicationList',
+          params: {
+
           }
         }),
         state

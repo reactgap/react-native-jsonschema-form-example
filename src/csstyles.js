@@ -294,6 +294,26 @@ const border = StyleSheet.create({
   },
 })
 
+const statusColor = {
+  pendding:'#007F77',
+  processing: '#00C9BD',
+  canceled: '#ED5350',
+  error: '#FFCD61',
+  sucess: '#4A9E42'
+}
+
+const fontSize = {
+  verySmall: 10,
+  small: 12,
+  normal: 14,
+  medium: 16,
+  large: 18
+}
+
+const chartConfig = {
+  
+}
+
 const indicatorCustomStyles = {
   stepIndicatorSize: 25,
   currentStepIndicatorSize:30,
@@ -327,5 +347,7 @@ export default {
   nav,
   screen,
   gradients,
-  indicatorCustomStyles
+  indicatorCustomStyles,
+  statusColor,
+  fontSize
 }

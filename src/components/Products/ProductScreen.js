@@ -53,20 +53,23 @@ class ProductScreen extends Component<Props, State> {
     
   }
 
-  renderScrollViewContent = () => {
+  renderScrollViewContent = (product: Product) => {
+    const infoUrl = product.informationURL  || ''
+    console.log('infoUrl',infoUrl)
     return (
       <ScrollableTabView
         style={[{marginTop: 0, flex: 1}]}
         initialPage={0}
+        locked={true}
         onChangeTab={this.handleChangeTab}
         tabBarInactiveTextColor={csstyles.vars.csGrey}
         tabBarActiveTextColor={csstyles.vars.csGrey}
         tabBarUnderlineStyle={{ backgroundColor: csstyles.vars.csGreenDeep }}
-        renderTabBar={() => <DefaultTabBar style={csstyles.base.scrollableTabBar}/>}
+        renderTabBar={() => <DefaultTabBar style={csstyles.base.scrollableTabBar} textStyle={styles.textStyle}/>}
       >
-          <ProductPolicy tabLabel='Policy' description={'Some *really* basic **Markdown*'}/>
-          <ProductDocumentation tabLabel='Documentation' />
-          <ProductReport tabLabel='Report' />
+          <ProductPolicy tabLabel='Policy' url={infoUrl}/>
+          <ProductDocumentation tabLabel='Documentation'/>
+          <ProductReport tabLabel='Report'/>
         </ScrollableTabView>
     )
   }
@@ -118,7 +121,7 @@ class ProductScreen extends Component<Props, State> {
       >
         <Hud {...hudConfig} />
         <View style={csstyles.base.full}>
-          {this.renderScrollViewContent()}
+          {this.renderScrollViewContent(product)}
         </View>
         { isEmpty(product.code) && 
         (<View style={csstyles.base.bottomView} >
@@ -156,6 +159,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  textStyle: {
+    ...csstyles.text.regular,
+    fontSize: csstyles.fontSize.normal
+  }
 })
 
 const mapStateToProps = (state: ReduxState) => {
