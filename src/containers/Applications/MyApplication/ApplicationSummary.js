@@ -7,6 +7,7 @@ import { View,
   FlatList,
   ActivityIndicator,
   Text,
+  Image,
   type ListRenderItem } from 'react-native'
 import { type NavigationTabScreenOptions } from 'react-navigation'
 import { i18nTranslator } from '../../../utils/i18n'
@@ -31,9 +32,9 @@ class ApplicationSummary extends PureComponent<Props,State> {
 
   // }
 
-  onSelect = () => {
+  onSelect = (data: SummaryItem) => {
     console.log('onSelect')
-    applicationActions.navigateApplicationList()
+    applicationActions.navigateApplicationList(data)
   }
 
   renderItem: ListRenderItem<SummaryItem> = ({ item, index }) => (

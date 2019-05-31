@@ -62,11 +62,13 @@ const reducer = (state = initialState, action) => {
     }
 
     case APPLICATION_LIST_NAVIGATE: {
+      const { data } = action.payload
+      console.log('payload',action.payload)
       return rootNavigator.router.getStateForAction(
         NavigationActions.navigate({
           routeName: 'ApplicationList',
           params: {
-
+            data
           }
         }),
         state

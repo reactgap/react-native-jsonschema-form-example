@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { View, ViewStyle, TouchableOpacity } from 'react-native';
-import Svg, { G, Path, Polygon, Circle, Rect } from 'react-native-svg';
+import Svg, { G, Path, Polygon, Circle, Rect, Line } from 'react-native-svg';
 
 type Props = {
   name:
@@ -16,6 +16,10 @@ type Props = {
 };
 
 const orgSizes = {
+  'separate-circle':{
+    orgWidth: 7,
+    orgHeight: 41.36
+  },
   'border-circle':{
     orgWidth: 240,
     orgHeight: 60
@@ -45,6 +49,59 @@ export default class ICSvg extends React.PureComponent<Props> {
     const { tintColor, name } = this.props;
 
     switch (name) {
+      case 'separate-circle': {
+        return (
+          <G>
+          <Path
+            d="M3.5,1A2.5,2.5,0,1,1,1,3.5,2.5,2.5,0,0,1,3.5,1m0-1A3.5,3.5,0,1,0,7,3.5,3.5,3.5,0,0,0,3.5,0Z"
+            id="Path_1"
+            fill={tintColor}
+          />
+          <Path
+            d="M3.5,35.36A2.5,2.5,0,1,1,1,37.86a2.5,2.5,0,0,1,2.5-2.5m0-1A3.5,3.5,0,1,0,7,37.86a3.5,3.5,0,0,0-3.5-3.5Z"
+            id="Path_2"
+            fill={tintColor}
+          />
+          <Path
+            d="M 3.5 7 L 3.5 8.5"
+            id="Path_3"
+            fill={'#fff'}
+            strokeLinejoin="round"
+            strokeLinecap="round"
+            strokeWidth="1"
+            stroke={tintColor}
+          />
+          <Path
+            d="M 3.5 11 L 3.5 17"
+            id="Path_4"
+            fill={'#fff'}
+            strokeLinejoin="round"
+            strokeLinecap="round"
+            strokeWidth="1"
+            stroke={tintColor}
+          />
+          <Path
+            d="M 3.5 19 L 3.5 30"
+            id="Path_5"
+            strokeLinejoin="round"
+            strokeLinecap="round"
+            strokeWidth="1"
+            stroke={tintColor}
+          />
+          <Path
+            d="M 3.5 32 L 3.5 33.36"
+            id="Path_6"
+            strokeLinejoin="round"
+            strokeLinecap="round"
+            strokeWidth="1"
+            stroke={tintColor}
+          />
+
+
+          </G>
+        )
+        
+      }
       case 'border-circle': {
        return(
         <Path

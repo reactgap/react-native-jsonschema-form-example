@@ -55,6 +55,7 @@ export type Product = {
 export type User = {
   firstName: string,
   lastName: string,
+  nationalId: String,
   address: {
     district: string,
     province: string
@@ -62,6 +63,8 @@ export type User = {
 }
 
 export type Application = {
+  updatedDate: string,
+  createDate: string,
   applicationId: string,
   product: Product,
   customer: User

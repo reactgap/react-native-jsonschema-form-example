@@ -13,6 +13,7 @@ import csstyles from '../../../csstyles'
 type Props = {
   title?: string,
   type: 'primary' | 'main' | 'secondary' | 'danger' | 'border' | 'primaryDark' | 'custom',
+  textCustomStyle?: ViewStyle,
   customStyle: ViewStyle,
   onPress?: () => void,
   leftIcon?: string,
@@ -33,7 +34,8 @@ const CSButton = ({
   iconOnly,
   iconStyle,
   iconContainerStyle,
-  customStyle
+  customStyle,
+  textCustomStyle
 }: Props) => {
   var btnStyle = styles[type]
   if (type === 'custom') {
@@ -59,7 +61,7 @@ const CSButton = ({
       disabled={disabled}
     >
       {!iconOnly && title && (
-        <Text style={[styles.textBase, textStyle]}>{title.toUpperCase()}</Text>
+        <Text style={[styles.textBase, textStyle, textCustomStyle]}>{title}</Text>
       )}
       {leftIcon && (
         <View
@@ -149,6 +151,9 @@ const styles = StyleSheet.create({
   },
   text_border: {
     color: csstyles.vars.csGreen
+  },
+  text_custom: {
+    color: csstyles.vars.csWhite
   }
 })
 

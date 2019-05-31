@@ -1,5 +1,7 @@
 [
   {
+    "createDate": "2019-09-14T00:29:40.276Z",
+    "updatedDate": "2019-09-14T00:29:40.276Z",
     "applicationId": "12345",
     "product": {
       "id": 1,
@@ -12,6 +14,7 @@
     "customer": {
       "firstName": "A",
       "lastName": "Nguyen Van",
+      "nationalId": "191723232323",
       "address": {
         "district": "Hải Châu",
         "province": "Đà Nẵng"
@@ -19,6 +22,8 @@
     }
   },
   {
+    "createDate": "2019-09-14T00:29:40.276Z",
+    "updatedDate": "2019-09-14T00:29:40.276Z",
     "applicationId": "12346",
     "product": {
       "id": 1,
@@ -29,8 +34,9 @@
       "currencyISO": "VND"
     },
     "customer": {
-      "firstName": "A",
+      "firstName": "B",
       "lastName": "Nguyen Van",
+      "nationalId": "191723232324",
       "address": {
         "district": "Hải Châu",
         "province": "Đà Nẵng"
@@ -38,6 +44,8 @@
     }
   },
   {
+    "createDate": "2019-10-14T00:29:40.276Z",
+    "updatedDate": "2019-09-14T00:29:40.276Z",
     "applicationId": "12347",
     "product": {
       "id": 1,
@@ -50,6 +58,7 @@
     "customer": {
       "firstName": "A",
       "lastName": "Nguyen Van",
+      "nationalId": "191723232325",
       "address": {
         "district": "Hải Châu",
         "province": "Đà Nẵng"

@@ -1,7 +1,7 @@
 // @flow
 
 import React, { Component } from 'react'
-import { 
+import {
   StyleSheet,
   View,
   Text,
@@ -36,7 +36,7 @@ class ApplicationSummaryItem extends Component<Props> {
 
   onPress = () => {
     const { onPress, data } = this.props
-    onPress()
+    onPress(data)
   }
 
   colorWithType = (type: Number) => {

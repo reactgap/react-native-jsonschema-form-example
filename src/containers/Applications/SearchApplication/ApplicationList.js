@@ -19,6 +19,8 @@ import { IS_DEVICE_VERY_LONG_WIDTH } from '../../../utils/deviceHelper'
 import ApplicationListItem from './ApplicationListItem'
 import Hud, { type HudConfig } from '../../../components/Hud/Hud'
 import applicationActions from '../../../actions/application.actions'
+import CSBackButton from '../../../components/Button/CSBackButton/CSBackButton'
+import NavTitle from '../../../components/NavTitle/NavTitle'
 
 type Props = ScreenNavigationProps<{}> & I18NComponent &  {
   isLoading: Boolean,
@@ -31,12 +33,25 @@ type State = {
 
 class ApplicationList extends PureComponent<Props,State> {
 
+  static navigationOptions = (props): NavigationStackScreenOptions => {
+    console.log('navigationOptions',props)
+    const state = props.navigation.state
+    const { data } = state
+    return {
+      headerLeft: <CSBackButton wrapperStyle={styles.backBtn} lighterBg={false}/>,
+      headerTitle: <NavTitle titleCode={''} />,
+      headerTintColor: csstyles.vars.csGreen,
+      headerTruncatedBackTitle: true,
+      headerRight: null,
+      headerStyle: csstyles.nav.header
+    }
+  }
+
   state: State = {
     registerConfirm: false
   }
 
   componentDidMount() {
-    // applicationActions.filterApplication()
     applicationActions.applicationListByType()
   }
 
@@ -46,9 +61,15 @@ class ApplicationList extends PureComponent<Props,State> {
     })
   }
 
-  renderItem: ListRenderItem<Application> = ({ item, index }) => (
-    <ApplicationListItem data={item} index={index} onPress={this.onSelect} type={this.props.type || 'searchApplication'}/>
-  )
+  renderItem: ListRenderItem<Application> = ({ item, index }) => {
+    const state = this.props.navigation.state
+    console.log('this.props.navigation',this.props.navigation)
+    const data = state.params.data || null
+    const type = data.type || -1
+    return (
+      <ApplicationListItem data={item} index={index} onPress={this.onSelect} type={type}/>
+    )
+  }
 
   onRefresh = () => {
 

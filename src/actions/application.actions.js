@@ -1,6 +1,6 @@
 // @flow
 import { getDispatch } from '../reduxStore'
-import { type Application, Summary } from '../types'
+import { type Application, Summary, SummaryItem } from '../types'
 
 export const FILTER_APPLICATION_LOADING = 'FILTER_APPLICATION_LOADING'
 export const FILTER_APPLICATION = 'FILTER_APPLICATION'
@@ -70,7 +70,7 @@ const applicationListByType = (data) => {
   })
 }
 
-const navigateApplicationList = (data) => {
+const navigateApplicationList = (data: SummaryItem) => {
   getDispatch()({
     type: APPLICATION_LIST_NAVIGATE,
     payload: {
