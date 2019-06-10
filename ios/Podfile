@@ -5,7 +5,7 @@ target 'TheBankCTV' do
     # Pods for TheBankCTV
     # React Native requirements
     pod 'React', :path => '../node_modules/react-native', :subspecs => [
-    'Core',
+    #'Core',
     'CxxBridge', # Include this for RN >= 0.47
     'RCTText',
     'RCTImage',
@@ -53,14 +53,14 @@ target 'TheBankCTV' do
     swift5 = ['Charts', 'SwiftyJSON']
     post_install do |installer|
         installer.pods_project.targets.each do |target|
-#            target.build_configurations.each do |config|
+            target.build_configurations.each do |config|
                 if target.name == "React"
                     target.remove_from_project
                 end
-#                if swift5.include?(target.name)
-#                    config.build_settings['SWIFT_VERSION'] = '5.0'
-#                end
-#            end
+                if swift5.include?(target.name)
+                    config.build_settings['SWIFT_VERSION'] = '5.0'
+                end
+            end
         end
     end
 end

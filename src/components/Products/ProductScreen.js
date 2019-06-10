@@ -123,7 +123,7 @@ class ProductScreen extends Component<Props, State> {
         <View style={csstyles.base.full}>
           {this.renderScrollViewContent(product)}
         </View>
-        { isEmpty(product.code) && 
+        { (product.code == null || product.code === "") && 
         (<View style={csstyles.base.bottomView} >
           <CSButton
             type="primary"

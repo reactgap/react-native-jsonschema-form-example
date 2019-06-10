@@ -50,7 +50,9 @@ class PieChartScreen extends React.Component {
         }],
       },
       highlights: [{x:2}],
-      description: null
+      description: {
+        text: ''
+      }
     };
   }
 

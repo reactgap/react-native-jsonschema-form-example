@@ -101,7 +101,7 @@ class ApplicationSummaryItem extends Component<Props> {
             tintColor={statusInfo.color}
             height={40}
             width={13}
-            containerStyle={{ position: 'absolute', top: -1, left: 0 }}
+            containerStyle={{ position: 'absolute', top: -1, left: 0, ...csstyles.base.shadow }}
         />
       </View>
     </TouchableOpacity>
