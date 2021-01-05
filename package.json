@@ -17,7 +17,7 @@
     "appcenter": "^1.13.0",
     "appcenter-analytics": "^1.13.0",
     "appcenter-crashes": "^1.13.0",
-    "axios": "0.18.0",
+    "axios": "0.21.1",
     "i18next": "13.1.0",
     "intl": "^1.2.5",
     "moment": "^2.24.0",
