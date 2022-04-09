@@ -20,7 +20,7 @@
     "axios": "0.18.0",
     "i18next": "13.1.0",
     "intl": "^1.2.5",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "react": "16.8.3",
     "react-i18next": "9.0.1",
     "react-native": "0.59.9",
